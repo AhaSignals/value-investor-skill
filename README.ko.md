@@ -10,6 +10,10 @@
 
 ![가상의 40달러 주식: 같은 가격, 서로 다른 가정](assets/demo.svg)
 
+### Claude · GPT · DeepSeek에서 시작하기
+
+Claude, ChatGPT, DeepSeek 채팅에서는 [복사해서 쓰는 연구 지침](prompts/START_HERE.md)을 붙여 넣고 한국어로 답해 달라고 요청하세요. 터미널이 필요 없습니다. Claude Code 플러그인과 Codex 로컬 스킬도 제공합니다. [앱별 설치 안내](docs/hosts.md). 실행 가능한 도구는 사용하는 앱에 따라 다릅니다.
+
 ### 1분 만에 실행
 
 Python 3.9 이상이 필요합니다. 이 **가상의 오프라인 데모**에는 pip 패키지, API 키, 유료 시장 데이터 또는 AI 모델 호출이 필요하지 않습니다.

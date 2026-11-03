@@ -1,0 +1,14 @@
+{
+  "name": "value-investor-skill",
+  "owner": {
+    "name": "AhaSignals"
+  },
+  "plugins": [
+    {
+      "name": "value-investor",
+      "source": "./",
+      "description": "Five value-investing research workflows in one skill, with optional local Python tools."
+    }
+  ],
+  "description": "AhaSignals value-investing research skill with scenario calculations and evidence revision history."
+}

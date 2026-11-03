@@ -1,0 +1,15 @@
+{
+  "name": "value-investor",
+  "version": "0.2.0",
+  "description": "Research a business, test its valuation, challenge the thesis and track changes in the evidence.",
+  "author": {
+    "name": "AhaSignals"
+  },
+  "homepage": "https://ahasignals.com/value-investor-skill/",
+  "repository": "https://github.com/AhaSignals/value-investor-skill",
+  "license": "MIT",
+  "skills": [
+    "./"
+  ],
+  "icon": "./assets/icon.png"
+}

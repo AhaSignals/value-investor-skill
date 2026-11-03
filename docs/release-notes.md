@@ -1,11 +1,24 @@
-# Value Investor Skill v0.1.1
+# Value Investor Skill v0.2.0
 
-Is this stock worth its price? Try the [browser example](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=release&utm_campaign=value_investor_launch_2026_11&utm_content=v011) without installing anything, then run the complete evidence-withdrawal demo locally.
+A value-investing skill for Claude, GPT and DeepSeek: understand the business, test the valuation, challenge your thesis, and track what changes when the evidence changes.
 
-This release adds Japanese, Korean, German, French and Spanish guides alongside English and Chinese. Every guide is included in the source ZIP and copied skill installation. CLI output and generated reports remain English; your AI host controls response language.
+## Start with your assistant
 
-The fictional $40 example shows why 33.3% and 50.0% can both match one price under different assumptions. These are conditional weights, not event probabilities. Withdraw the supporting evidence and dependent values become unavailable while the original research remains preserved.
+- **Claude / ChatGPT / DeepSeek chat:** copy the [portable research instructions](https://github.com/AhaSignals/value-investor-skill/blob/v0.2.0/prompts/START_HERE.md). [中文](https://github.com/AhaSignals/value-investor-skill/blob/v0.2.0/prompts/START_HERE.zh-CN.md). No terminal needed.
+- **Claude Code:** add marketplace `AhaSignals/value-investor-skill`, then install `value-investor@value-investor-skill`.
+- **GPT in Codex:** ask it to install this repository as a skill, or run `python3 scripts/install.py --host codex` from the source package.
+- **DeepSeek in a skill host:** use your configured Claude Code / Codex installation route. Ordinary DeepSeek chat can use the portable instructions.
 
-Also included: a shareable illustration, structured installation/translation feedback form, and links to AhaSignals source-dated research.
+Start by asking: “Show me the fictional $40 example.” [App-specific steps and capability limits](https://github.com/AhaSignals/value-investor-skill/blob/v0.2.0/docs/hosts.md).
 
-No calculation or evidence-clock semantics changed. Package/CLI version is 0.1.1; calculation output version stays 0.1.0 so existing ledgers reproduce. Python 3.9+, MIT license, no pip packages for the offline demo.
+## Which download?
+
+- `value-investor-skill-upload-v0.2.0.zip`: compact skill folder for a supported custom-skill upload interface; includes instructions, references, examples and runtime Python tools.
+- `value-investor-skill-v0.2.0.zip`: complete source, installer, tests, documentation and plugin manifests.
+- `SHA256SUMS`: checksums for both files.
+
+Both packages run the offline demo. Code execution and durable storage depend on your host; a prompt alone does not create a verified ledger. AhaSignals has not certified equivalent model quality or every account-specific upload flow. Model service fees still apply.
+
+Also added: project-scoped installation, a local setup check, and preserved legacy Codex installations with migration guidance. Seven getting-started languages. CLI/report output remains English.
+
+The calculation engine is unchanged. Output version remains 0.1.0 to preserve prior ledger reproduction. Package/CLI version is 0.2.0. Fictional demo arithmetic is not an event probability or investment advice.

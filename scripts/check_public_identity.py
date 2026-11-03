@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FILES = {"README.md", "README.zh-CN.md", "SKILL.md", "LICENSE", "AGENTS.md",
          "CONTRIBUTING.md", "SECURITY.md", "CHANGELOG.md", ".gitignore", ".gitattributes"}
 FILES.update("README." + locale + ".md" for locale in ("ja", "ko", "de", "fr", "es"))
-DIRECTORIES = {"core", "scripts", "tests", "examples", "references", "assets", "agents", "docs", ".github"}
+DIRECTORIES = {"core", "scripts", "tests", "examples", "references", "assets", "agents", "docs", "prompts", ".claude-plugin", ".github"}
 
 
 def public_files(root=ROOT):

@@ -4,56 +4,62 @@
 
 ## 这只股票，值现在这个价吗？
 
-看懂公司、检验估值，查清当前价格已经计入了哪些预期。
+**适用于 Claude、GPT 和 DeepSeek 的价值投资研究 skill：看懂业务、检查估值、寻找反证，并在证据变化时更新原判断。**
 
-**由 [AhaSignals](https://ahasignals.com) 开发** · [English](README.md) · [完整演示](docs/demo.md) · [输入与命令](references/input-contract.md) · [MIT](LICENSE)
+一个 skill，五种研究流程。从公司名称或一个问题开始。普通聊天可直接复制研究指令；在支持工具的助手中安装完整技能，即可运行可复核的计算、保存研究版本。
 
-**[直接试用浏览器演示，无需安装](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=zh_demo)**
+**免费、MIT 开源、不需要注册项目账号。** AI 服务本身的账号、工具权限和费用仍适用。
 
-![假设股价40美元：同一个价格，不同的假设](assets/demo.svg)
+[30 秒在线演示](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=zh_demo) · [选择你的助手](docs/hosts.md) · [English](README.md) · [AhaSignals 出品](https://ahasignals.com)
 
-> “这只股票卖40美元，需要什么结果才能支撑这个价格？什么新事实会改变判断？”
+## 用你已经在用的助手开始
 
-这是一个给 AI 助手使用的研究技能，附带本地 Python 工具。助手阅读和解释证据，程序计算情景、检查资料时间并保存研究修订。**不连接券商。**
+| 你使用的产品 | 最快入口 |
+| --- | --- |
+| **Claude、ChatGPT、DeepSeek 聊天** | 把[这份完整中文指令](prompts/START_HERE.zh-CN.md)复制到新对话，再输入公司名称。无需终端。 |
+| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.2.0/value-investor-skill-upload-v0.2.0.zip)，在 Customize → Skills 中启用。 |
+| **Claude Code** | 输入下方两条插件命令。 |
+| **使用 GPT 的 Codex** | 请它把本仓库安装为 skill；或使用下方 Python 安装器。 |
+| **使用 DeepSeek 的技能宿主** | 按已配置的 Claude Code / Codex 宿主安装。[说明](docs/hosts.md#deepseek-chat-or-a-configured-skill-host)。 |
 
-## 一分钟运行示例
+在 Claude Code 内输入：
 
-需要 Python 3.9+。以下**假设数据离线演示**不需要安装 pip 包、行情凭证或调用模型。
+```text
+/plugin marketplace add AhaSignals/value-investor-skill
+/plugin install value-investor@value-investor-skill
+```
+
+然后问：
+
+> 用虚构的 40 美元股票给我演示：改一个估值假设，再撤回支撑它的证据，解释结果为什么改变。
+
+研究真实公司时：
+
+> 研究一下[公司名称]。它靠什么赚钱？当前股价要求哪些假设成立？什么证据会让我改变判断？
+
+助手负责理解资料和解释；有执行权限和可写文件时，Python 负责情景计算和版本记录。普通聊天可以采用相同研究方法，但不会仅凭提示词建立持久账本。不能联网时，请提供原始资料。[能力说明与排错](docs/hosts.md)。
+
+![虚构的40美元股票：同一价格，不同假设](assets/demo.svg)
+
+<details>
+<summary>习惯用终端？一分钟运行完整离线演示。</summary>
+
+Python 3.9+。虚构演示不需要 pip 依赖、API key 或模型调用。
 
 ```bash
 git clone https://github.com/AhaSignals/value-investor-skill.git
 cd value-investor-skill
-python3 scripts/investor.py demo --out output/demo
+python3 scripts/doctor.py
+python3 scripts/investor.py demo --out output/first-demo
 ```
 
-打开 `output/demo/before/research.html`，再打开 `output/demo/after/research.html`。
+打开 `output/first-demo/before/research.html`，再打开 `output/first-demo/after/research.html`。重跑请换一个输出目录。Windows 可把 `python3` 换成 `py -3`。
 
-程序会计算40美元股票的情景、冻结原研究、应用一次资料撤回，并显示哪些估值需要复核；同时生成“收购报价100美元、股价92美元”的案例。重复运行请换一个输出目录，已有演示账本不会被覆盖。
+复制安装：`python3 scripts/install.py --host codex` 或 `--host claude`。仅用于一个项目时，加 `--scope project --project ./my-project`。安装器保留已有安装。
 
-## 安装技能
+也可使用[skills CLI](https://github.com/vercel-labs/skills)（Node.js 22.20+）：`npx skills add AhaSignals/value-investor-skill --skill value-investor-skill`。选择一种安装方式即可；设置 `DISABLE_TELEMETRY=1` 可关闭该 CLI 的遥测。
 
-在仓库目录中选择对应入口：
-
-```bash
-python3 scripts/install.py --host codex
-# 或：
-python3 scripts/install.py --host claude
-```
-
-安装器复制完整技能；存在同名安装时会停止，不覆盖旧版本。重新加载助手技能后提问：
-
-> 使用 value-investor-skill 研究这家公司。解释当前股价要求哪些假设成立、证据是否支持，以及什么事实会改变结论。
-
-Codex 可以用 `$value-investor-skill` 显式调用。项目提供标准 SKILL.md 和 Codex 界面元数据；已测试安装布局与复制后的程序运行，不代表认证每种宿主或模型版本。AI 推理、浏览能力及其费用由你的宿主提供。也可在具备工具能力的助手中直接读取 [SKILL.md](SKILL.md)。
-
-也可以使用[官方 skills CLI](https://github.com/vercel-labs/skills)（Node.js 22.20+）：
-
-```bash
-npx skills add AhaSignals/value-investor-skill --skill value-investor-skill
-```
-
-在安装器中选择宿主。CLI 自带可关闭的遥测，可设置 `DISABLE_TELEMETRY=1`；上面的 Python 安装方式不需要 Node.js。
-
+</details>
 
 ## 五个问题
 

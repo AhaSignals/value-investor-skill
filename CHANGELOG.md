@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0 — 2026-11-04
+
+- Add Claude Code marketplace/plugin packaging with the existing self-contained skill.
+- Add English/Chinese portable research instructions for Claude, ChatGPT, DeepSeek and other text assistants, with capability-aware fallback.
+- Lead onboarding with app selection, a first question and five research workflows; update all seven language guides.
+- Add a compact upload ZIP and a dependency-free local setup check.
+- Add guided and project-scoped installation. Codex now uses the documented `.agents/skills` location; existing legacy installations are preserved with migration guidance.
+- Keep calculation output version 0.1.0 unchanged so prior ledgers reproduce. Package/CLI version is 0.2.0. No model API calls or provider configuration changes.
+
 ## 0.1.1 — 2026-11-03
 
 - Add Japanese, Korean, German, French and Spanish getting-started guides alongside English and Chinese.

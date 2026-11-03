@@ -12,13 +12,18 @@ sys.path.insert(0, str(ROOT))
 from core import __version__
 
 
-def build(out):
-    if inspect():
-        raise ValueError("Source identity check failed")
-    out.mkdir(parents=True, exist_ok=True)
-    archive = out / ("value-investor-skill-v" + __version__ + ".zip")
+def upload_files():
+    allowed = {"SKILL.md", "LICENSE", "core", "references", "examples", "prompts", "agents"}
+    runtime_scripts = {"investor.py", "fetch_sec.py", "doctor.py"}
+    for path in public_files():
+        rel = path.relative_to(ROOT)
+        if rel.parts[0] in allowed or (rel.parts[0] == "scripts" and path.name in runtime_scripts):
+            yield path
+
+
+def write_archive(archive, files):
     with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as package:
-        for path in public_files():
+        for path in files:
             info = zipfile.ZipInfo("value-investor-skill/" + path.relative_to(ROOT).as_posix(), (1980, 1, 1, 0, 0, 0))
             info.create_system = 3
             info.external_attr = 0o100644 << 16
@@ -27,9 +32,20 @@ def build(out):
     if inspect(archive=archive):
         archive.unlink()
         raise ValueError("Archive identity check failed")
-    checksum = hashlib.sha256(archive.read_bytes()).hexdigest()
-    (out / "SHA256SUMS").write_text(checksum + "  " + archive.name + "\n", encoding="utf-8")
+    return hashlib.sha256(archive.read_bytes()).hexdigest()
+
+
+def build(out):
+    if inspect():
+        raise ValueError("Source identity check failed")
+    out.mkdir(parents=True, exist_ok=True)
+    archive = out / ("value-investor-skill-v" + __version__ + ".zip")
+    checksum = write_archive(archive, public_files())
+    upload = out / ("value-investor-skill-upload-v" + __version__ + ".zip")
+    upload_checksum = write_archive(upload, upload_files())
+    (out / "SHA256SUMS").write_text(checksum + "  " + archive.name + "\n" + upload_checksum + "  " + upload.name + "\n", encoding="utf-8")
     print(archive.name + " · SHA-256 " + checksum)
+    print(upload.name + " · SHA-256 " + upload_checksum)
     return archive
 
 

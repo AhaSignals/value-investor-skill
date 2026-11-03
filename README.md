@@ -4,55 +4,62 @@
 
 ## Is this stock worth its price?
 
-Research the business, test the valuation, and see what today's price assumes.
+**A value-investing skill for Claude, GPT and DeepSeek: understand the business, test the valuation, challenge your thesis, and track what changes when the evidence changes.**
 
-**By [AhaSignals](https://ahasignals.com)** · [中文](README.zh-CN.md) · [Worked demo](docs/demo.md) · [Input guide](references/input-contract.md) · [MIT](LICENSE) · [Roadmap](docs/roadmap.md)
+Five research workflows in one skill. Start with a company name or a question. Use a ready-to-paste prompt in chat, or install the full skill in a compatible app for reproducible calculations and saved research.
 
-**[Try the browser demo — no installation](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=en_demo)**
+**Free, MIT, no project signup.** Your AI service's account, tool access and fees still apply.
+
+[Try the 30-second browser demo](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=en_demo) · [Choose your assistant](docs/hosts.md) · [中文](README.zh-CN.md) · [By AhaSignals](https://ahasignals.com)
+
+## Start with the assistant you already use
+
+| You use | Start here |
+| --- | --- |
+| **Claude, ChatGPT or DeepSeek chat** | Copy [these ready-to-paste instructions](prompts/START_HERE.md), then ask about a company. No terminal needed. |
+| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.2.0/value-investor-skill-upload-v0.2.0.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
+| **Claude Code** | Run the two plugin commands below. |
+| **GPT in Codex** | Ask it to install this repository as a skill. [Steps](docs/hosts.md#gpt--codex-local-skill). |
+| **DeepSeek in a skill-capable app** | Use the Claude Code or Codex route for your configured host. [Steps](docs/hosts.md#deepseek-chat-or-a-configured-skill-host). |
+
+In Claude Code:
+
+```text
+/plugin marketplace add AhaSignals/value-investor-skill
+/plugin install value-investor@value-investor-skill
+```
+
+Then ask:
+
+> Show me the fictional $40 example. Change one valuation assumption, then withdraw its supporting evidence. Explain what changes and why.
+
+For your own research:
+
+> Research [company]. How does it make money, what does its price assume, and what evidence would change the answer?
+
+The assistant supplies reasoning and source access. Python calculates supplied scenarios and preserves revisions when execution and writable files are available. Ordinary chat uses the same research method without promising a persistent ledger. [Capabilities and troubleshooting](docs/hosts.md).
 
 ![A fictional $40 stock: same price, different assumptions](assets/demo.svg)
 
-> “This stock is $40. What has to go right to justify that price—and what would change the answer?”
+<details>
+<summary>Prefer a terminal? Run the full offline demo in one minute.</summary>
 
-A research skill for your AI assistant, backed by local Python tools. The assistant reads and explains evidence; the code calculates scenarios, checks declared evidence dates, and preserves revisions. **No brokerage connection.**
-
-## Try it in one minute
-
-Python 3.9+; no pip packages, market-data credentials or model calls needed for this **fictional offline demo**.
+Python 3.9+; no pip packages, API key or model calls for the fictional demo.
 
 ```bash
 git clone https://github.com/AhaSignals/value-investor-skill.git
 cd value-investor-skill
-python3 scripts/investor.py demo --out output/demo
+python3 scripts/doctor.py
+python3 scripts/investor.py demo --out output/first-demo
 ```
 
-Open `output/demo/before/research.html`, then `output/demo/after/research.html`.
+Open `output/first-demo/before/research.html`, then `output/first-demo/after/research.html`. Use a new output directory to rerun. Windows: use `py -3` instead of `python3`.
 
-The demo computes the $40 scenarios, freezes the original research, applies a source withdrawal, and shows which estimates become unavailable. It also runs the $100 cash-offer / $92 stock example. Existing demo ledgers are never overwritten; use a new output directory to rerun.
+Install a copied skill with `python3 scripts/install.py --host codex` or `--host claude`; use `--scope project --project ./my-project` for one project. The installer preserves existing copies.
 
-## Install the skill
+You can also use `npx skills add AhaSignals/value-investor-skill --skill value-investor-skill` with the [skills CLI](https://github.com/vercel-labs/skills) (Node.js 22.20+). Choose one installation route; `DISABLE_TELEMETRY=1` opts out of that CLI's telemetry.
 
-After cloning, choose your agent's skill directory:
-
-```bash
-python3 scripts/install.py --host codex
-# Or:
-python3 scripts/install.py --host claude
-```
-
-The installer copies the self-contained skill and refuses to overwrite an existing installation. Reload your agent's skills, then ask:
-
-> Use value-investor-skill to research this company. Explain what the share price requires, which evidence supports those assumptions, and what could change the conclusion.
-
-For Codex, you can explicitly invoke `$value-investor-skill`. The package includes standard SKILL.md metadata and Codex UI metadata. Installation layout and copied-package execution are tested; the project does not certify every host/model version. Your host supplies the AI and any browsing access; model and data costs depend on that setup. You can also read [SKILL.md](SKILL.md) directly in a tool-enabled assistant.
-
-You can also use the [official skills CLI](https://github.com/vercel-labs/skills) (Node.js 22.20+):
-
-```bash
-npx skills add AhaSignals/value-investor-skill --skill value-investor-skill
-```
-
-Choose your host in the installer. The CLI has its own optional telemetry; set `DISABLE_TELEMETRY=1` to opt out. The Python installer above does not require Node.js.
+</details>
 
 ## Five questions, inspectable answers
 
@@ -93,7 +100,7 @@ Your assistant needs source access or documents you provide. Missing evidence st
 - **Time belongs to the evidence.** Publication and observation timestamps are distinct. Future or withdrawn evidence blocks dependent estimates.
 - **Financing has two sides.** New capital and new shares enter the same per-share calculation.
 - **Updates leave a record.** SQLite snapshots bind inputs, outputs and source events; revisions do not overwrite earlier judgments.
-- **Unknown stays unknown.** v0.1 does not estimate calibrated probabilities or an executable valuation gap. It returns `NOT_ESTIMATED` / `NO_QUOTE` alongside useful scenario arithmetic.
+- **Unknown stays unknown.** The engine does not estimate calibrated probabilities or an executable valuation gap. It returns `NOT_ESTIMATED` / `NO_QUOTE` alongside useful scenario arithmetic.
 
 These are verifiable design choices, not claims of superior investment performance or claims that all other research tools lack them.
 
