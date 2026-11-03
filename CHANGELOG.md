@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 — 2026-11-04
+
+- Select the source archive explicitly in release validation. Windows enumerated the upload ZIP first; the two archives have intentionally different contents. Both runtime packages remain unchanged.
+
 ## 0.2.0 — 2026-11-04
 
 - Add Claude Code marketplace/plugin packaging with the existing self-contained skill.

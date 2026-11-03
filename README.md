@@ -17,7 +17,7 @@ Five research workflows in one skill. Start with a company name or a question. U
 | You use | Start here |
 | --- | --- |
 | **Claude, ChatGPT or DeepSeek chat** | Copy [these ready-to-paste instructions](prompts/START_HERE.md), then ask about a company. No terminal needed. |
-| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.2.0/value-investor-skill-upload-v0.2.0.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
+| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.2.1/value-investor-skill-upload-v0.2.1.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
 | **Claude Code** | Run the two plugin commands below. |
 | **GPT in Codex** | Ask it to install this repository as a skill. [Steps](docs/hosts.md#gpt--codex-local-skill). |
 | **DeepSeek in a skill-capable app** | Use the Claude Code or Codex route for your configured host. [Steps](docs/hosts.md#deepseek-chat-or-a-configured-skill-host). |

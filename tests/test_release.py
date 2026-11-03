@@ -9,6 +9,8 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from check_public_identity import findings, inspect
+sys.path.insert(0, str(ROOT))
+from core import __version__
 
 
 class ReleaseTests(unittest.TestCase):
@@ -25,7 +27,9 @@ class ReleaseTests(unittest.TestCase):
             cmd = [sys.executable, str(ROOT / 'scripts/package_release.py'), '--out', str(out)]
             first = subprocess.run(cmd, capture_output=True, text=True)
             self.assertEqual(first.returncode, 0, first.stderr)
-            archive = next(out.glob('*.zip'))
+            # Filesystem enumeration order differs across hosts. Select the source
+            # archive explicitly; the upload archive intentionally omits README files.
+            archive = out / ('value-investor-skill-v' + __version__ + '.zip')
             initial = hashlib.sha256(archive.read_bytes()).hexdigest()
             self.assertEqual(subprocess.run(cmd, capture_output=True).returncode, 0)
             self.assertEqual(hashlib.sha256(archive.read_bytes()).hexdigest(), initial)

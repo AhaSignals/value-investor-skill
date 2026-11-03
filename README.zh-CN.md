@@ -17,7 +17,7 @@
 | 你使用的产品 | 最快入口 |
 | --- | --- |
 | **Claude、ChatGPT、DeepSeek 聊天** | 把[这份完整中文指令](prompts/START_HERE.zh-CN.md)复制到新对话，再输入公司名称。无需终端。 |
-| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.2.0/value-investor-skill-upload-v0.2.0.zip)，在 Customize → Skills 中启用。 |
+| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.2.1/value-investor-skill-upload-v0.2.1.zip)，在 Customize → Skills 中启用。 |
 | **Claude Code** | 输入下方两条插件命令。 |
 | **使用 GPT 的 Codex** | 请它把本仓库安装为 skill；或使用下方 Python 安装器。 |
 | **使用 DeepSeek 的技能宿主** | 按已配置的 Claude Code / Codex 宿主安装。[说明](docs/hosts.md#deepseek-chat-or-a-configured-skill-host)。 |
