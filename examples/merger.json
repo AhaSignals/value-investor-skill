@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "fictional-merger",
+  "company": "Example Cash Merger",
+  "currency": "USD",
+  "fictional": true,
+  "archetype": "cash_merger",
+  "cutoff": "2026-11-02T16:00:00Z",
+  "mode": "as_observed",
+  "business": "Fictional target company with a fixed cash consideration.",
+  "event": "Completion of the fictional merger.",
+  "resolution_rule": "For real research use closing confirmation in a primary filing, a deadline and rules for termination or amended terms.",
+  "horizon": "Teaching example: discount factor set to one; no dividend, cost or risk-premium adjustment.",
+  "model_limits": "Price-matching weights depend on assumed break values. They are not completion probabilities or an expected trading return.",
+  "price": {
+    "value": 92,
+    "as_of": "2026-11-02T15:55:00Z",
+    "max_age_hours": 1
+  },
+  "evidence": [
+    {
+      "id": "E-01",
+      "title": "Fictional offer assumption",
+      "claim": "Assumed cash offer of 100 per share; discount factor one.",
+      "kind": "assumption",
+      "status": "active",
+      "version": "1",
+      "published_at": "2026-11-01T09:00:00Z",
+      "observed_at": "2026-11-01T09:05:00Z",
+      "rights": "AhaSignals synthetic fixture; MIT",
+      "url": "https://example.org/fictional-launch-assumption"
+    },
+    {
+      "id": "E-02",
+      "title": "Fictional break-value assumptions",
+      "claim": "Assumed failure-state values of 60 or 80 per share.",
+      "kind": "assumption",
+      "status": "active",
+      "version": "1",
+      "published_at": "2026-11-01T09:00:00Z",
+      "observed_at": "2026-11-01T09:05:00Z",
+      "rights": "AhaSignals synthetic fixture; MIT",
+      "url": "https://example.org/fictional-downside"
+    }
+  ],
+  "counterevidence": [
+    "A spread can reflect financing, timing and failure-state risk."
+  ],
+  "unknowns": [
+    "Completion timing, agreement conditions, funding and costs are absent."
+  ],
+  "invalidation_conditions": [
+    "Changed consideration or break-value evidence requires a new study version."
+  ],
+  "scenarios": [
+    {
+      "id": "complete",
+      "label": "Completed cash offer",
+      "operating_value_pv": 10000000000,
+      "cash": 0,
+      "debt": 0,
+      "other_claims": 0,
+      "new_capital_net": 0,
+      "future_costs_pv": 0,
+      "shares": 100000000,
+      "new_shares": 0,
+      "evidence_ids": [
+        "E-01"
+      ],
+      "assumptions": "Fictional equity bridge in whole USD and whole shares; operating value is already present value. No additional cash or claims in this toy case."
+    },
+    {
+      "id": "break60",
+      "label": "Break value A",
+      "operating_value_pv": 6000000000,
+      "cash": 0,
+      "debt": 0,
+      "other_claims": 0,
+      "new_capital_net": 0,
+      "future_costs_pv": 0,
+      "shares": 100000000,
+      "new_shares": 0,
+      "evidence_ids": [
+        "E-02"
+      ],
+      "assumptions": "Fictional equity bridge in whole USD and whole shares; operating value is already present value. No additional cash or claims in this toy case."
+    },
+    {
+      "id": "break80",
+      "label": "Break value B",
+      "operating_value_pv": 8000000000,
+      "cash": 0,
+      "debt": 0,
+      "other_claims": 0,
+      "new_capital_net": 0,
+      "future_costs_pv": 0,
+      "shares": 100000000,
+      "new_shares": 0,
+      "evidence_ids": [
+        "E-02"
+      ],
+      "assumptions": "Fictional equity bridge in whole USD and whole shares; operating value is already present value. No additional cash or claims in this toy case."
+    }
+  ]
+}

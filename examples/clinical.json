@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "id": "fictional-clinical",
+  "company": "Example Clinical Company",
+  "currency": "USD",
+  "fictional": true,
+  "archetype": "clinical",
+  "cutoff": "2026-11-02T16:00:00Z",
+  "mode": "as_observed",
+  "business": "A fictional clinical-stage company with one candidate and future funding needs.",
+  "event": "A product milestone may change the economics; this toy example does not model a clinical probability.",
+  "resolution_rule": "No real event is forecast. Replace with a precise endpoint, deadline and primary-source rule for actual research.",
+  "horizon": "Illustrative present-value scenarios; no forecast holding period.",
+  "model_limits": "Two favorable assumptions and one unfavorable state are sensitivity cases, not mutually exclusive measured probabilities. Model omits risk-premium differences and detailed clinical transitions. No calibrated forecast or cost-adjusted decision margin.",
+  "price": {
+    "value": 40,
+    "as_of": "2026-11-02T15:55:00Z",
+    "max_age_hours": 1
+  },
+  "evidence": [
+    {
+      "id": "E-01",
+      "title": "Fictional launch planning assumption",
+      "claim": "Launch timing used in both favorable scenarios is assumed, not an issuer fact.",
+      "kind": "assumption",
+      "status": "active",
+      "version": "1",
+      "published_at": "2026-11-01T09:00:00Z",
+      "observed_at": "2026-11-01T09:05:00Z",
+      "rights": "AhaSignals synthetic fixture; MIT",
+      "url": "https://example.org/fictional-launch-assumption"
+    },
+    {
+      "id": "E-02",
+      "title": "Fictional downside assumption",
+      "claim": "A downside state has assumed equity value of 2 billion, not a guaranteed cash floor.",
+      "kind": "assumption",
+      "status": "active",
+      "version": "1",
+      "published_at": "2026-11-01T09:00:00Z",
+      "observed_at": "2026-11-01T09:05:00Z",
+      "rights": "AhaSignals synthetic fixture; MIT",
+      "url": "https://example.org/fictional-downside"
+    }
+  ],
+  "counterevidence": [
+    "Clinical milestones do not establish regulatory approval or commercial demand."
+  ],
+  "unknowns": [
+    "No evidence-based event probability is available.",
+    "Actual launch timing, financing terms and risk premia are not supplied."
+  ],
+  "invalidation_conditions": [
+    "Withdrawn launch-timing support invalidates dependent favorable values.",
+    "Changed financing terms require both cash and diluted share count to be reviewed."
+  ],
+  "scenarios": [
+    {
+      "id": "favorable80",
+      "label": "Favorable economics A",
+      "operating_value_pv": 8000000000,
+      "cash": 0,
+      "debt": 0,
+      "other_claims": 0,
+      "new_capital_net": 0,
+      "future_costs_pv": 0,
+      "shares": 100000000,
+      "new_shares": 0,
+      "evidence_ids": [
+        "E-01"
+      ],
+      "assumptions": "Fictional equity bridge in whole USD and whole shares; operating value is already present value. No additional cash or claims in this toy case."
+    },
+    {
+      "id": "favorable60",
+      "label": "Favorable economics B",
+      "operating_value_pv": 6000000000,
+      "cash": 0,
+      "debt": 0,
+      "other_claims": 0,
+      "new_capital_net": 0,
+      "future_costs_pv": 0,
+      "shares": 100000000,
+      "new_shares": 0,
+      "evidence_ids": [
+        "E-01"
+      ],
+      "assumptions": "Fictional equity bridge in whole USD and whole shares; operating value is already present value. No additional cash or claims in this toy case."
+    },
+    {
+      "id": "unfavorable",
+      "label": "Unfavorable economics",
+      "operating_value_pv": 2000000000,
+      "cash": 0,
+      "debt": 0,
+      "other_claims": 0,
+      "new_capital_net": 0,
+      "future_costs_pv": 0,
+      "shares": 100000000,
+      "new_shares": 0,
+      "evidence_ids": [
+        "E-02"
+      ],
+      "assumptions": "Fictional equity bridge in whole USD and whole shares; operating value is already present value. No additional cash or claims in this toy case."
+    }
+  ]
+}

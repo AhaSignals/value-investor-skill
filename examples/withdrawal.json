@@ -1,0 +1,19 @@
+{
+  "id": "launch-withdrawal-001",
+  "evidence_id": "E-01",
+  "expected_evidence_hash": "042972ed7ed6662aa6f17000206e9000ae452b8ad4a60cbf2e43b151fa4ab9c0",
+  "cutoff": "2026-11-02T16:15:00Z",
+  "replacement": {
+    "id": "E-01",
+    "title": "Fictional launch planning assumption",
+    "claim": "Fictional withdrawal of launch timing; no replacement date supplied.",
+    "kind": "assumption",
+    "status": "withdrawn",
+    "version": "2",
+    "published_at": "2026-11-02T16:10:00Z",
+    "observed_at": "2026-11-02T16:11:00Z",
+    "rights": "AhaSignals synthetic fixture; MIT",
+    "url": "https://example.org/fictional-launch-assumption"
+  },
+  "reason": "Launch-timing assumption withdrawn; recomputation withheld pending review."
+}

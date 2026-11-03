@@ -1,0 +1,4 @@
+interface:
+  display_name: "Value Investor Skill"
+  short_description: "Research a stock, its price, and what could change."
+  default_prompt: "Use $value-investor-skill to research what this stock price assumes and which evidence could change the conclusion."

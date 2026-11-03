@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">Is this stock worth forty dollars?</title><desc id="desc">Fictional stock: eighty and twenty dollar scenarios match a forty dollar price at 33.3 percent; sixty and twenty at 50.0 percent. These are conditional weights, not probabilities. Withdrawing evidence withholds dependent values and preserves history.</desc>
+<rect width="1200" height="720" rx="24" fill="#f3f6f0"/>
+<g font-family="system-ui,-apple-system,Segoe UI,sans-serif" fill="#173e2c">
+<text x="56" y="55" font-size="15" letter-spacing="2">AHASIGNALS / VALUE INVESTOR SKILL</text>
+<text x="56" y="127" font-size="48" font-weight="650" letter-spacing="-1.7">Is this stock worth $40?</text>
+<text x="56" y="171" font-size="23" fill="#5b7162">One price. Different assumptions. Evidence decides what survives.</text>
+<rect x="56" y="211" width="532" height="255" rx="18" fill="#fff"/>
+<rect x="612" y="211" width="532" height="255" rx="18" fill="#fff"/>
+<text x="82" y="250" font-size="14" letter-spacing="1.5" fill="#657c6b">IF THE STATES ARE $80 AND $20</text>
+<text x="82" y="339" font-size="75" font-weight="600" letter-spacing="-3">33.3%</text>
+<text x="82" y="382" font-size="21">Favorable weight that matches $40</text>
+<text x="82" y="431" font-size="16" fill="#657c6b">$20 + w × ($80 − $20) = $40</text>
+<text x="638" y="250" font-size="14" letter-spacing="1.5" fill="#657c6b">IF THE STATES ARE $60 AND $20</text>
+<text x="638" y="339" font-size="75" font-weight="600" letter-spacing="-3">50.0%</text>
+<text x="638" y="382" font-size="21">Favorable weight that matches $40</text>
+<text x="638" y="431" font-size="16" fill="#657c6b">$20 + w × ($60 − $20) = $40</text>
+<rect x="56" y="488" width="1088" height="130" rx="18" fill="#e3ece0"/>
+<text x="82" y="529" font-size="22" font-weight="600">What if the supporting source is withdrawn?</text>
+<text x="82" y="569" font-size="20">Dependent values withheld. NEEDS_REVIEW. Original research preserved.</text>
+<text x="56" y="657" font-size="16" fill="#5b7162">FICTIONAL OFFLINE DEMO · Conditional arithmetic, not event probabilities or investment advice.</text>
+<text x="56" y="690" font-size="16" fill="#5b7162">github.com/AhaSignals/value-investor-skill · Python 3.9+ · No pip packages · MIT</text>
+</g></svg>
