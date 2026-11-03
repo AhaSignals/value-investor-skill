@@ -9,6 +9,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+from core import __version__
 from core.research import ResearchError, analyze, digest, html_report, markdown
 from core.ledger import connect, diff, freeze, records, revise, unpack, update_evidence, verify
 
@@ -55,7 +56,7 @@ def demo(out):
 
 def main(argv=None):
     p = argparse.ArgumentParser(description="Research a stock's assumptions. No brokerage or model API calls.")
-    p.add_argument("--version", action="version", version="0.1.0")
+    p.add_argument("--version", action="version", version=__version__)
     sub = p.add_subparsers(dest="command", required=True)
     d = sub.add_parser("demo", help="Run a complete fictional before/after study")
     d.add_argument("--out", default="output/demo")

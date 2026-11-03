@@ -32,6 +32,7 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual(inspect(archive=archive), [])
             with zipfile.ZipFile(archive) as package:
                 self.assertFalse(any('.git/' in n or '__pycache__' in n or n.endswith('.sqlite') for n in package.namelist()))
+                self.assertTrue(all('value-investor-skill/README.' + locale + '.md' in package.namelist() for locale in ('ja','ko','de','fr','es')))
                 self.assertTrue(all(i.date_time == (1980, 1, 1, 0, 0, 0) for i in package.infolist()))
                 package.extractall(parent / 'extracted')
             script = parent / 'extracted/value-investor-skill/scripts/investor.py'

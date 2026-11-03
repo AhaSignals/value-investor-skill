@@ -1,0 +1,33 @@
+name: Installation, research or translation feedback
+description: Tell us where the example or instructions stopped being useful.
+title: "[Experience] "
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: What did you try?
+      options:
+        - Browser example
+        - Local Python demo
+        - Skill installation
+        - Research workflow
+        - Language guide
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Guide language and version
+      placeholder: English, v0.1.1
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect, and what happened?
+      description: Include the command or sentence if useful. Do not include private holdings, personal paths, credentials or licensed documents.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment or suggested correction
+      description: For an installation problem, include OS, Python version and agent host. For a translation, quote the phrase and suggest an alternative.

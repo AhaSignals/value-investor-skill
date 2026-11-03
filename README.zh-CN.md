@@ -1,10 +1,14 @@
 # value-investor-skill
 
+[English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
+
 ## 这只股票，值现在这个价吗？
 
 看懂公司、检验估值，查清当前价格已经计入了哪些预期。
 
 **由 [AhaSignals](https://ahasignals.com) 开发** · [English](README.md) · [完整演示](docs/demo.md) · [输入与命令](references/input-contract.md) · [MIT](LICENSE)
+
+**[直接试用浏览器演示，无需安装](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=zh_demo)**
 
 ![假设股价40美元：同一个价格，不同的假设](assets/demo.svg)
 
@@ -41,6 +45,15 @@ python3 scripts/install.py --host claude
 > 使用 value-investor-skill 研究这家公司。解释当前股价要求哪些假设成立、证据是否支持，以及什么事实会改变结论。
 
 Codex 可以用 `$value-investor-skill` 显式调用。项目提供标准 SKILL.md 和 Codex 界面元数据；已测试安装布局与复制后的程序运行，不代表认证每种宿主或模型版本。AI 推理、浏览能力及其费用由你的宿主提供。也可在具备工具能力的助手中直接读取 [SKILL.md](SKILL.md)。
+
+也可以使用[官方 skills CLI](https://github.com/vercel-labs/skills)（Node.js 22.20+）：
+
+```bash
+npx skills add AhaSignals/value-investor-skill --skill value-investor-skill
+```
+
+在安装器中选择宿主。CLI 自带可关闭的遥测，可设置 `DISABLE_TELEMETRY=1`；上面的 Python 安装方式不需要 Node.js。
+
 
 ## 五个问题
 
@@ -112,3 +125,7 @@ python3 scripts/package_release.py --out dist
 AhaSignals 是独立研究发布者。本项目仅供研究与教育，不构成投资、交易、法律、税务或医疗建议；第三方名称仅作来源或兼容说明，不表示合作或背书。代码与原创假设数据采用 MIT 许可，第三方来源权利不由该许可授予。
 
 后续开发方向见 [Roadmap](docs/roadmap.md)；中英文发布文案见 [Launch kit](docs/launch-kit.md)。开源工具无需 AhaSignals 账号，v0.1 不会自动上传研究资料。
+
+## 继续阅读 AhaSignals
+
+[查看有来源和日期的现金流案例](https://ahasignals.com/research/rebalance-cash-review/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=zh_case)，或[了解资料时间与修订方法](https://ahasignals.com/methodology/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=zh_methodology)。[多语言范围与翻译贡献](docs/translations.md)。

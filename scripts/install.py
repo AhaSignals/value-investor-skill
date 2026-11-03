@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PARTS = ("SKILL.md", "agents", "core", "scripts", "references", "examples", "assets", "docs", "tests",
          "README.md", "README.zh-CN.md", "LICENSE", "CONTRIBUTING.md", "SECURITY.md", "CHANGELOG.md", "AGENTS.md")
 
+PARTS += tuple("README." + locale + ".md" for locale in ("ja", "ko", "de", "fr", "es"))
 
 def main():
     parser = argparse.ArgumentParser(description="Install a copy. Existing installations are never overwritten.")

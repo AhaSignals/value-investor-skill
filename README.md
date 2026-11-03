@@ -1,10 +1,14 @@
 # value-investor-skill
 
+[English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
+
 ## Is this stock worth its price?
 
 Research the business, test the valuation, and see what today's price assumes.
 
 **By [AhaSignals](https://ahasignals.com)** · [中文](README.zh-CN.md) · [Worked demo](docs/demo.md) · [Input guide](references/input-contract.md) · [MIT](LICENSE) · [Roadmap](docs/roadmap.md)
+
+**[Try the browser demo — no installation](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=en_demo)**
 
 ![A fictional $40 stock: same price, different assumptions](assets/demo.svg)
 
@@ -41,6 +45,14 @@ The installer copies the self-contained skill and refuses to overwrite an existi
 > Use value-investor-skill to research this company. Explain what the share price requires, which evidence supports those assumptions, and what could change the conclusion.
 
 For Codex, you can explicitly invoke `$value-investor-skill`. The package includes standard SKILL.md metadata and Codex UI metadata. Installation layout and copied-package execution are tested; the project does not certify every host/model version. Your host supplies the AI and any browsing access; model and data costs depend on that setup. You can also read [SKILL.md](SKILL.md) directly in a tool-enabled assistant.
+
+You can also use the [official skills CLI](https://github.com/vercel-labs/skills) (Node.js 22.20+):
+
+```bash
+npx skills add AhaSignals/value-investor-skill --skill value-investor-skill
+```
+
+Choose your host in the installer. The CLI has its own optional telemetry; set `DISABLE_TELEMETRY=1` to opt out. The Python installer above does not require Node.js.
 
 ## Five questions, inspectable answers
 
@@ -120,3 +132,9 @@ The tests cover arithmetic, dilution, source cutoffs, price freshness, invalidat
 If you try it, an issue with a reproducible redacted case is more useful than a screenshot of a target price. Do not post private holdings, credentials or licensed source documents.
 
 AhaSignals is an independent research publisher. Research and education only; not investment, trading, legal, tax or medical advice. Third-party names identify factual sources or compatibility context, not affiliation or endorsement. MIT-licensed code and original fictional fixtures; third-party source rights are not granted by this license.
+
+## Continue with AhaSignals
+
+[Read a source-dated cash-flow case](https://ahasignals.com/research/rebalance-cash-review/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=en_case) or [inspect how source clocks and revisions work](https://ahasignals.com/methodology/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=en_methodology). The open-source skill works independently; no AhaSignals account or automatic research upload.
+
+[Language coverage and translation contributions](docs/translations.md).
