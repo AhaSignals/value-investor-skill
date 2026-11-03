@@ -140,6 +140,17 @@ If you try it, an issue with a reproducible redacted case is more useful than a 
 
 AhaSignals is an independent research publisher. Research and education only; not investment, trading, legal, tax or medical advice. Third-party names identify factual sources or compatibility context, not affiliation or endorsement. MIT-licensed code and original fictional fixtures; third-party source rights are not granted by this license.
 
+## Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/AhaSignals"><img src="https://github.com/AhaSignals.png?size=64" width="48" height="48" alt="AhaSignals" /><br />AhaSignals</a><br /><sub>Maintainer and publisher</sub></td>
+    <td align="center"><a href="https://chatgpt.com/"><img src="https://github.com/openai.png?size=64" width="48" height="48" alt="ChatGPT / Codex — OpenAI logo" /><br />ChatGPT / Codex</a><br /><sub>AI-assisted development</sub></td>
+  </tr>
+</table>
+
+Development was assisted by OpenAI's Codex. AhaSignals maintains and publishes the project. The OpenAI logo identifies the tool used; it belongs to OpenAI and does not imply affiliation or endorsement.
+
 ## Continue with AhaSignals
 
 [Read a source-dated cash-flow case](https://ahasignals.com/research/rebalance-cash-review/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=en_case) or [inspect how source clocks and revisions work](https://ahasignals.com/methodology/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=en_methodology). The open-source skill works independently; no AhaSignals account or automatic research upload.

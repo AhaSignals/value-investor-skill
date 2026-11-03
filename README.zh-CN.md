@@ -132,6 +132,17 @@ AhaSignals 是独立研究发布者。本项目仅供研究与教育，不构成
 
 后续开发方向见 [Roadmap](docs/roadmap.md)；中英文发布文案见 [Launch kit](docs/launch-kit.md)。开源工具无需 AhaSignals 账号，v0.1 不会自动上传研究资料。
 
+## 贡献者
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/AhaSignals"><img src="https://github.com/AhaSignals.png?size=64" width="48" height="48" alt="AhaSignals" /><br />AhaSignals</a><br /><sub>项目维护与发布</sub></td>
+    <td align="center"><a href="https://chatgpt.com/"><img src="https://github.com/openai.png?size=64" width="48" height="48" alt="ChatGPT / Codex — OpenAI 标识" /><br />ChatGPT / Codex</a><br /><sub>AI 辅助开发</sub></td>
+  </tr>
+</table>
+
+本项目使用 OpenAI 的 Codex 辅助开发，由 AhaSignals 维护和发布。OpenAI 图标用于标识所使用的工具，归 OpenAI 所有，不表示合作或背书。
+
 ## 继续阅读 AhaSignals
 
 [查看有来源和日期的现金流案例](https://ahasignals.com/research/rebalance-cash-review/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=zh_case)，或[了解资料时间与修订方法](https://ahasignals.com/methodology/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=zh_methodology)。[多语言范围与翻译贡献](docs/translations.md)。
