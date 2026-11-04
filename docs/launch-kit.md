@@ -4,7 +4,7 @@ Draft copy for publication by AhaSignals. Preparing this file does not post it t
 
 ## One sentence
 
-**Is this stock worth its price? An open-source AI research skill that makes the assumptions, evidence and revisions inspectable.**
+**5 value-investing workflows in 1 AI skill: analyze businesses, test valuations, check stock-price assumptions, challenge investment theses, and track evidence changes. For Claude, ChatGPT, DeepSeek, Grok, Gemini and Kimi. Zero-install chat; 2 fictional case studies.**
 
 ## Short demonstration
 
@@ -20,7 +20,7 @@ Repository: https://github.com/AhaSignals/value-investor-skill
 
 **这只股票，值现在这个价吗？**
 
-value-investor-skill 是 AhaSignals 开源的 AI 投资研究技能。它把公司情景估值、股价要求的假设、反面证据和研究修订放在同一份可检查的记录里。
+1 个 AI skill，5 个价值投资流程：看业务、算情景、查股价假设、找反证、复核证据变化。提供 2 个虚构案例、1 张演示图和 HTML / Markdown / JSON 输出。Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 可直接复制指令试用。
 
 一分钟离线演示：同样 40 美元的价格，换一个有利情景，价格匹配权重就从 33.3% 变成 50%。再撤回支撑该情景的资料，相关估值立即停止输出，原来的研究仍保留。
 

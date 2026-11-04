@@ -8,6 +8,8 @@ Investiga el negocio, comprueba las hipótesis de valoración y descubre qué te
 
 [Probar la demo en el navegador](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=es_demo) · [Ejemplo antes y después](docs/demo.md) · [Licencia MIT](LICENSE)
 
+**1 skill con 5 flujos de investigación, 2 casos ficticios, 1 ilustración de demostración y salidas HTML, Markdown y JSON.**
+
 ![Una acción ficticia a 40 dólares: el mismo precio, distintas hipótesis](assets/demo.svg)
 
 ### Empieza con Claude, GPT, DeepSeek, Grok, Gemini o Kimi

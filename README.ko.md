@@ -8,6 +8,8 @@
 
 [브라우저에서 데모 체험](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=ko_demo) · [변경 전후 사례](docs/demo.md) · [MIT 라이선스](LICENSE)
 
+**스킬 1개에 연구 흐름 5개. 가상 사례 2개, 데모 그림 1개, HTML·Markdown·JSON 출력 3종을 제공합니다.**
+
 ![가상의 40달러 주식: 같은 가격, 서로 다른 가정](assets/demo.svg)
 
 ### Claude · GPT · DeepSeek · Grok · Gemini · Kimi에서 시작하기

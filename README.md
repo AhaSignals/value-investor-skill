@@ -4,9 +4,11 @@
 
 ## Is this stock worth its price?
 
-**A value-investing skill for Claude, GPT, DeepSeek, Grok, Gemini and Kimi: understand the business, test the valuation, challenge your thesis, and track what changes when the evidence changes.**
+**5 value-investing workflows in 1 AI skill: analyze the business, test valuation scenarios, check what the stock price assumes, challenge your investment thesis, and review what changes when the evidence changes.**
 
-Five research workflows in one skill. Start with a company name or a question. Use a ready-to-paste prompt in chat, or install the full skill in a compatible app for reproducible calculations and saved research.
+For Claude, ChatGPT (GPT), DeepSeek, Grok, Gemini and Kimi. Start with a company name or a question. Copy the instructions into chat with no installation, or install the full skill for local Python calculations and saved research.
+
+**6 chat assistants · 7 language guides · 2 fictional case studies · HTML, Markdown and JSON reports.**
 
 **Free, MIT, no project signup.** Your AI service's account, tool access and fees still apply.
 
@@ -79,6 +81,19 @@ You can also use `npx skills add AhaSignals/value-investor-skill --skill value-i
 | **What changed since last time?** | New evidence, affected estimates and preserved prior versions. |
 
 The business analysis and source judgments are performed by your AI assistant/researcher. The CLI does not independently discover a company's intrinsic value or generate a validated probability. Read the [research protocol](references/research-protocol.md).
+
+## What is included?
+
+| Item | Included in this repository |
+| --- | --- |
+| **1 installable skill** | One root `SKILL.md` with five workflows: business analysis, valuation scenarios, price assumptions, counterevidence and evidence updates. |
+| **2 fictional case studies** | A clinical-stage company with a source-withdrawal revision, and a fixed-cash merger. [Run both](docs/demo.md). |
+| **1 demo illustration** | The USD 40 example in [SVG](assets/demo.svg) and [PNG](assets/demo.png); two formats of the same figure. |
+| **3 report formats** | Local HTML and Markdown research reports, plus structured JSON output. |
+| **6 chat assistants** | Claude, ChatGPT, DeepSeek, Grok, Gemini and Kimi via portable instructions; available tools depend on the host. [Routes and verification](docs/hosts.md). |
+| **7 language guides** | English, Chinese, Japanese, Korean, German, French and Spanish. Copy-ready prompts are English/Chinese; generated CLI reports are English. |
+
+The local engine calculates supplied scenarios, checks source cutoffs and preserves SQLite research versions. Use it for fundamental stock analysis, valuation scenarios and investment-thesis review.
 
 ## The $40 example
 

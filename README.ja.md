@@ -8,6 +8,8 @@
 
 [ブラウザーでデモを試す](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=ja_demo) · [評価が変わる例](docs/demo.md) · [MIT ライセンス](LICENSE)
 
+**1つのスキルに5つの調査ワークフロー。架空の事例2件、デモ図1点、HTML・Markdown・JSONの3形式の出力を収録。**
+
 ![架空の40ドル株：同じ価格でも、必要な前提は異なる](assets/demo.svg)
 
 ### Claude・GPT・DeepSeek・Grok・Gemini・Kimi で始める

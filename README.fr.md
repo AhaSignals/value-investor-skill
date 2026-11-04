@@ -8,6 +8,8 @@
 
 [Essayer la démo dans le navigateur](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=fr_demo) · [Exemple avant/après](docs/demo.md) · [Licence MIT](LICENSE)
 
+**1 skill, 5 parcours de recherche, 2 études de cas fictives, 1 illustration de démonstration et des sorties HTML, Markdown et JSON.**
+
 ![Une action fictive à 40 dollars : un même cours, des hypothèses différentes](assets/demo.svg)
 
 ### Commencer avec Claude, GPT, DeepSeek, Grok, Gemini ou Kimi

@@ -8,6 +8,8 @@ Untersuche das Geschäft, prüfe die Bewertungsannahmen und sieh, was der Kurs v
 
 [Demo im Browser ausprobieren](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=de_demo) · [Vorher-nachher-Beispiel](docs/demo.md) · [MIT-Lizenz](LICENSE)
 
+**1 Skill mit 5 Rechercheabläufen, 2 fiktiven Fallstudien, 1 Demo-Abbildung und Ausgaben als HTML, Markdown und JSON.**
+
 ![Eine fiktive Aktie zu 40 Dollar: gleicher Kurs, unterschiedliche Annahmen](assets/demo.svg)
 
 ### Mit Claude, GPT, DeepSeek, Grok, Gemini oder Kimi starten
