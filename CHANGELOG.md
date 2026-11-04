@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-11-04
+
+- Add explicit Grok, Gemini and Kimi chat routes alongside Claude, ChatGPT and DeepSeek.
+- Add Gemini CLI and Kimi Code installer targets, preserving shared installations and Gemini alias precedence.
+- Use currency words in SKILL.md to avoid host argument-placeholder ambiguity.
+- Add capability-aware source fallbacks, a four-step user acceptance trial and a dated compatibility record.
+- Expand feedback collection to identify the assistant and failed trial step. The calculation engine and output version remain 0.1.0.
+
 ## 0.2.1 — 2026-11-04
 
 - Select the source archive explicitly in release validation. Windows enumerated the upload ZIP first; the two archives have intentionally different contents. Both runtime packages remain unchanged.

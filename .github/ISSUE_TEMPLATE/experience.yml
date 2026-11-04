@@ -7,6 +7,7 @@ body:
     attributes:
       label: What did you try?
       options:
+        - Chat instructions / two-minute trial
         - Browser example
         - Local Python demo
         - Skill installation
@@ -14,11 +15,24 @@ body:
         - Language guide
     validations:
       required: true
+  - type: dropdown
+    id: assistant
+    attributes:
+      label: Which assistant or host?
+      options:
+        - Claude
+        - ChatGPT / Codex
+        - DeepSeek
+        - Grok
+        - Gemini / Gemini CLI
+        - Kimi / Kimi Code
+        - Browser demo only
+        - Other
   - type: input
     id: language
     attributes:
       label: Guide language and version
-      placeholder: English, v0.1.1
+      placeholder: English, v0.3.0
   - type: textarea
     id: expected
     attributes:

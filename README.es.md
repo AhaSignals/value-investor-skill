@@ -10,9 +10,9 @@ Investiga el negocio, comprueba las hipótesis de valoración y descubre qué te
 
 ![Una acción ficticia a 40 dólares: el mismo precio, distintas hipótesis](assets/demo.svg)
 
-### Empieza con Claude, GPT o DeepSeek
+### Empieza con Claude, GPT, DeepSeek, Grok, Gemini o Kimi
 
-Pega las [instrucciones de investigación listas para usar](prompts/START_HERE.md) en Claude, ChatGPT o DeepSeek y pide una respuesta en español. No necesitas terminal. También hay un plugin para Claude Code y una instalación local para Codex. [Guía por aplicación](docs/hosts.md). Las herramientas que puedes ejecutar dependen de tu aplicación.
+Pega las [instrucciones de investigación listas para usar](prompts/START_HERE.md) en Claude, ChatGPT, DeepSeek, Grok, Gemini o Kimi y pide una respuesta en español. No necesitas terminal. También hay un plugin para Claude Code y una instalación local para Codex. [Guía por aplicación](docs/hosts.md). Las herramientas que puedes ejecutar dependen de tu aplicación.
 
 ### Pruébalo en un minuto
 

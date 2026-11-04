@@ -10,9 +10,9 @@
 
 ![Une action fictive à 40 dollars : un même cours, des hypothèses différentes](assets/demo.svg)
 
-### Commencer avec Claude, GPT ou DeepSeek
+### Commencer avec Claude, GPT, DeepSeek, Grok, Gemini ou Kimi
 
-Collez les [consignes de recherche prêtes à utiliser](prompts/START_HERE.md) dans Claude, ChatGPT ou DeepSeek et demandez une réponse en français. Aucun terminal nécessaire. Un plugin Claude Code et une installation locale pour Codex sont également disponibles. [Guide par application](docs/hosts.md). Les outils exécutables dépendent de votre application.
+Collez les [consignes de recherche prêtes à utiliser](prompts/START_HERE.md) dans Claude, ChatGPT, DeepSeek, Grok, Gemini ou Kimi et demandez une réponse en français. Aucun terminal nécessaire. Un plugin Claude Code et une installation locale pour Codex sont également disponibles. [Guide par application](docs/hosts.md). Les outils exécutables dépendent de votre application.
 
 ### Essayez en une minute
 

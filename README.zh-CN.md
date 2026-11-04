@@ -4,7 +4,7 @@
 
 ## 这只股票，值现在这个价吗？
 
-**适用于 Claude、GPT 和 DeepSeek 的价值投资研究 skill：看懂业务、检查估值、寻找反证，并在证据变化时更新原判断。**
+**适用于 Claude、GPT、DeepSeek、Grok、Gemini 和 Kimi 的价值投资研究 skill：看懂业务、检查估值、寻找反证，并在证据变化时更新原判断。**
 
 一个 skill，五种研究流程。从公司名称或一个问题开始。普通聊天可直接复制研究指令；在支持工具的助手中安装完整技能，即可运行可复核的计算、保存研究版本。
 
@@ -16,9 +16,10 @@
 
 | 你使用的产品 | 最快入口 |
 | --- | --- |
-| **Claude、ChatGPT、DeepSeek 聊天** | 把[这份完整中文指令](prompts/START_HERE.zh-CN.md)复制到新对话，再输入公司名称。无需终端。 |
-| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.2.1/value-investor-skill-upload-v0.2.1.zip)，在 Customize → Skills 中启用。 |
+| **Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 聊天** | 把[这份完整中文指令](prompts/START_HERE.zh-CN.md)复制到新对话，再输入公司名称。无需终端。 |
+| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.3.0/value-investor-skill-upload-v0.3.0.zip)，在 Customize → Skills 中启用。 |
 | **Claude Code** | 输入下方两条插件命令。 |
+| **Gemini CLI 或 Kimi Code** | 用 `--host gemini` 或 `--host kimi` 安装同一个技能。[步骤](docs/hosts.md#gemini-cli-and-kimi-code)。 |
 | **使用 GPT 的 Codex** | 请它把本仓库安装为 skill；或使用下方 Python 安装器。 |
 | **使用 DeepSeek 的技能宿主** | 按已配置的 Claude Code / Codex 宿主安装。[说明](docs/hosts.md#deepseek-chat-or-a-configured-skill-host)。 |
 
@@ -60,6 +61,12 @@ python3 scripts/investor.py demo --out output/first-demo
 也可使用[skills CLI](https://github.com/vercel-labs/skills)（Node.js 22.20+）：`npx skills add AhaSignals/value-investor-skill --skill value-investor-skill`。选择一种安装方式即可；设置 `DISABLE_TELEMETRY=1` 可关闭该 CLI 的遥测。
 
 </details>
+
+## 两分钟试用
+
+1. [复制研究指令](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=try_chat&lang=zh#start)，选择聊天工具和语言。
+2. 请助手演示虚构的 40 美元案例，再要求撤回证据。
+3. [核对预期结果](docs/compatibility.md#two-minute-acceptance-check)，或[反馈卡住的步骤](https://github.com/AhaSignals/value-investor-skill/issues/new?template=experience.yml)。
 
 ## 五个问题
 

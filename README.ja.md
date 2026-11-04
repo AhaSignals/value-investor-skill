@@ -10,9 +10,9 @@
 
 ![架空の40ドル株：同じ価格でも、必要な前提は異なる](assets/demo.svg)
 
-### Claude・GPT・DeepSeek で始める
+### Claude・GPT・DeepSeek・Grok・Gemini・Kimi で始める
 
-Claude、ChatGPT、DeepSeek のチャットでは、[コピー用の研究指示](prompts/START_HERE.md)を貼り付け、日本語で回答するよう依頼できます。ターミナルは不要です。Claude Code はプラグイン、Codex はローカルスキルとして利用できます。[アプリ別の導入手順](docs/hosts.md)。実行できるツールは利用するアプリによって異なります。
+Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi のチャットでは、[コピー用の研究指示](prompts/START_HERE.md)を貼り付け、日本語で回答するよう依頼できます。ターミナルは不要です。Claude Code はプラグイン、Codex はローカルスキルとして利用できます。[アプリ別の導入手順](docs/hosts.md)。実行できるツールは利用するアプリによって異なります。
 
 ### 1分で試す
 

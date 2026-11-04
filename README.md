@@ -4,7 +4,7 @@
 
 ## Is this stock worth its price?
 
-**A value-investing skill for Claude, GPT and DeepSeek: understand the business, test the valuation, challenge your thesis, and track what changes when the evidence changes.**
+**A value-investing skill for Claude, GPT, DeepSeek, Grok, Gemini and Kimi: understand the business, test the valuation, challenge your thesis, and track what changes when the evidence changes.**
 
 Five research workflows in one skill. Start with a company name or a question. Use a ready-to-paste prompt in chat, or install the full skill in a compatible app for reproducible calculations and saved research.
 
@@ -16,9 +16,10 @@ Five research workflows in one skill. Start with a company name or a question. U
 
 | You use | Start here |
 | --- | --- |
-| **Claude, ChatGPT or DeepSeek chat** | Copy [these ready-to-paste instructions](prompts/START_HERE.md), then ask about a company. No terminal needed. |
-| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.2.1/value-investor-skill-upload-v0.2.1.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
+| **Claude, ChatGPT, DeepSeek, Grok, Gemini or Kimi chat** | Copy [these ready-to-paste instructions](prompts/START_HERE.md), then ask about a company. No terminal needed. |
+| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.3.0/value-investor-skill-upload-v0.3.0.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
 | **Claude Code** | Run the two plugin commands below. |
+| **Gemini CLI or Kimi Code** | Install the same skill with `--host gemini` or `--host kimi`. [Steps](docs/hosts.md#gemini-cli-and-kimi-code). |
 | **GPT in Codex** | Ask it to install this repository as a skill. [Steps](docs/hosts.md#gpt--codex-local-skill). |
 | **DeepSeek in a skill-capable app** | Use the Claude Code or Codex route for your configured host. [Steps](docs/hosts.md#deepseek-chat-or-a-configured-skill-host). |
 
@@ -60,6 +61,12 @@ Install a copied skill with `python3 scripts/install.py --host codex` or `--host
 You can also use `npx skills add AhaSignals/value-investor-skill --skill value-investor-skill` with the [skills CLI](https://github.com/vercel-labs/skills) (Node.js 22.20+). Choose one installation route; `DISABLE_TELEMETRY=1` opts out of that CLI's telemetry.
 
 </details>
+
+## Try it in two minutes
+
+1. [Copy the research instructions](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=try_chat#start). Choose your chat app and language.
+2. Ask for the fictional USD 40 example. Then ask it to withdraw the evidence.
+3. [Check the expected result](docs/compatibility.md#two-minute-acceptance-check), or [report where you got stuck](https://github.com/AhaSignals/value-investor-skill/issues/new?template=experience.yml).
 
 ## Five questions, inspectable answers
 

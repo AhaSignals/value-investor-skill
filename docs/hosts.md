@@ -1,14 +1,19 @@
 # Choose your assistant
 
-**Model names and skill hosts are different.** Claude, GPT and DeepSeek supply reasoning. The app decides whether it can install a skill, browse, execute Python and retain files. This project makes no API calls and does not change your provider, credentials or permissions.
+**Model names and skill hosts are different.** Claude, GPT, DeepSeek, Grok, Gemini and Kimi supply reasoning. The app decides whether it can install a skill, browse, execute Python and retain files. This project makes no API calls and does not change your provider, credentials or permissions.
 
 | Where you work | Fastest start | What you get |
 | --- | --- | --- |
-| Claude, ChatGPT or DeepSeek chat | Copy [English](../prompts/START_HERE.md) or [中文](../prompts/START_HERE.zh-CN.md) into a new chat | Five research workflows; tools depend on your chat session |
+| Claude, ChatGPT, DeepSeek, Grok, Gemini or Kimi chat | Copy [English](../prompts/START_HERE.md) or [中文](../prompts/START_HERE.zh-CN.md) into a new chat | Five research workflows; tools depend on your chat session |
 | Claude with custom skills enabled | Upload the **upload ZIP** from [Releases](https://github.com/AhaSignals/value-investor-skill/releases/latest) | Skill instructions and bundled Python tools where execution is available |
 | Claude Code | Two plugin commands below, or the Python installer | Local research, calculations and saved revisions |
 | GPT in Codex | Ask Codex to install this repository as a skill, or use the Python installer | The same local research and calculation tools |
 | DeepSeek in Claude Code or Codex | Configure the host using DeepSeek's documentation, then use that host's installation route | Same files and Python engine; model quality and tool access depend on the configured host |
+| Grok | Copy the portable instructions; attach source excerpts when needed | No project install or native plugin claim |
+| Gemini chat / Gems | Paste the instructions into a new chat; optionally save them as a Gem | Reusable instructions; session tools still vary |
+| Gemini CLI | `python3 scripts/install.py --host gemini` | Standard skill files and local Python tools |
+| Kimi chat / Agent | Paste the instructions, or use your enabled Skills controls | Agent features and access depend on your account |
+| Kimi Code | `python3 scripts/install.py --host kimi` | Shared `.agents/skills` installation and local Python tools |
 | Other chat assistants | Use the portable instructions | Text workflow; no claim of a tested native integration |
 
 ## No installation: ordinary chat
@@ -34,7 +39,7 @@ For updates, use `/plugin` to update the installed plugin. A plugin installation
 
 ## Claude web / desktop: upload
 
-Download `value-investor-skill-upload-v0.2.1.zip` from [the release](https://github.com/AhaSignals/value-investor-skill/releases/tag/v0.2.1). Keep the ZIP intact. In Claude, use **Customize → Skills → Create skill → Upload a skill**, then enable it. Code execution must be available for the Python workflow. Ask for the fictional demo and save its generated files if you need them later. Cloud sessions do not automatically retain a local ledger across chats. [Claude's current instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+Download `value-investor-skill-upload-v0.3.0.zip` from [the release](https://github.com/AhaSignals/value-investor-skill/releases/tag/v0.3.0). Keep the ZIP intact. In Claude, use **Customize → Skills → Create skill → Upload a skill**, then enable it. Code execution must be available for the Python workflow. Ask for the fictional demo and save its generated files if you need them later. Cloud sessions do not automatically retain a local ledger across chats. [Claude's current instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
 
 ## GPT / Codex: local skill
 
@@ -61,6 +66,31 @@ For DeepSeek chat, use the portable instructions above. For executable tools, De
 
 The installer does not create a fictitious `.deepseek/skills` directory or change model configuration. Never put a provider key into this repository, a research bundle or a public issue. We have not run a paid DeepSeek session or certified equal research quality across models.
 
+## Grok, Gemini and Kimi: ordinary chat
+
+Use the same portable instructions, then run the [two-minute check](compatibility.md#two-minute-acceptance-check). No plugin installation or API key is required by this project. Your chosen service may require an account, first-use terms, a supported region or a paid plan for particular tools.
+
+- **Grok:** paste the instructions into a new chat. If needed, attach your source files using its file control and explicitly ask Grok to follow the research instructions. A social post or search snippet is not a company filing. [Official file help](https://docs.x.ai/grok/faq#how-do-i-upload-files-to-grok).
+- **Gemini:** paste the instructions into chat. If your account exposes Gems, create a Gem and put the text in its **Instructions** field; add only documents you intend it to use. Saving a Gem does not install the Python engine. [Official Gems instructions](https://support.google.com/gemini/answer/15146780?hl=en).
+- **Kimi:** paste the instructions into a new chat. If your account exposes Agent Skills, you can use its skill library and slash selector; installation and execution depend on the enabled product. We do not claim a Kimi Store listing or verified cloud upload. [Official Agent Skills help](https://www.kimi.com/en/help/plugins-and-skills/use-skills-in-agent).
+
+## Gemini CLI and Kimi Code
+
+Gemini CLI requires project trust before loading project skills. Review the project and use its normal trust prompt; the installer does not bypass trust or consent.
+
+Clone the repository or extract the source ZIP, then choose your host:
+
+```bash
+python3 scripts/install.py --host gemini
+python3 scripts/install.py --host kimi
+```
+
+Gemini CLI loads `.gemini/skills` and the higher-priority `.agents/skills` alias. The installer uses `.gemini/skills` and refuses to create a shadowed copy when the shared skill already exists. Use `/skills list` and `/skills reload` in Gemini CLI. Its own `gemini skills install https://github.com/AhaSignals/value-investor-skill.git` command is another route; review its normal permission prompt. [Official Gemini CLI discovery and commands](https://geminicli.com/docs/cli/skills/).
+
+Kimi Code loads the shared `.agents/skills` directory. The installer uses that documented location for both user and project scope, independent of `KIMI_CODE_HOME`. An existing Codex copy there is shared; reuse it rather than installing twice. Kimi's own `.kimi-code/skills` directory is another discovery location, so check for an existing same-name skill there before installing. For project scope, choose a Git project root. Invoke `/skill:value-investor-skill` or ask naturally. [Official Kimi Code locations](https://moonshotai.github.io/kimi-code/en/customization/skills).
+
+These routes install files. They do not configure model providers, purchase credits, change permissions or prove model quality. [What was actually verified](compatibility.md).
+
 ## Manual installation, project scope and checks
 
 From a cloned repository or extracted **source ZIP**:
@@ -73,12 +103,12 @@ python3 scripts/doctor.py                         # local package/runtime check
 python3 scripts/investor.py demo --out output/first-demo
 ```
 
-On Windows use `py -3` in place of `python3`. No pip dependencies. Project scope uses `.claude/skills` or `.agents/skills` below the chosen project. `--target` accepts a custom parent skill directory. Existing installations are never overwritten. Installation does not install Python, an AI app, a model or browsing tools.
+On Windows use `py -3` in place of `python3`. No pip dependencies. Project scope uses `.claude/skills`, `.gemini/skills` or `.agents/skills` below the chosen project. `--target` accepts a custom parent skill directory. Existing installations are never overwritten. Installation does not install Python, an AI app, a model or browsing tools.
 
 Open `output/first-demo/before/research.html` and `output/first-demo/after/research.html`. Repeating the demo requires a new output directory; it will not overwrite saved research. If your host reports a missing skill, start a new session and check which installation scope it loads. If Python is missing, use the browser demo or portable prompt now and install Python separately when you need reproducible calculations.
 
 ## Compatibility evidence
 
-Checked against the official documentation on **2026-11-04**. Automated tests cover source/upload ZIP extraction, copied installation, current host paths, preserved existing files and local demo execution. Claude Code CLI 2.1.317 validated both manifests and installed the plugin into an isolated test configuration; its component inventory found the skill, and the installed copy passed the offline demo. These checks establish packaging and local execution, not successful account-specific upload or model reasoning quality. The release does not include a paid provider benchmark. [Report a reproducible problem](https://github.com/AhaSignals/value-investor-skill/issues/new?template=experience.yml).
+Checked against the official documentation on **2026-11-04**. Automated tests cover source/upload ZIP extraction, copied installation, current host paths, preserved existing files and local demo execution. Claude Code CLI 2.1.317 validated both manifests and installed the plugin into an isolated test configuration; its component inventory found the skill, and the installed copy passed the offline demo. These checks establish packaging and local execution, not successful account-specific upload or model reasoning quality. The release does not include a paid provider benchmark. See the [dated compatibility record and acceptance prompts](compatibility.md). [Report a reproducible problem](https://github.com/AhaSignals/value-investor-skill/issues/new?template=experience.yml).
 
 AhaSignals is independent. Product names indicate compatibility and source context, without affiliation or endorsement. Research and education only.

@@ -34,6 +34,37 @@ class OnboardingTests(unittest.TestCase):
             run = subprocess.run([sys.executable, str(folder/'scripts/investor.py'), 'demo', '--out', str(base/'demo')], cwd=base, capture_output=True)
             self.assertEqual(run.returncode, 0, run.stderr)
 
+    def test_new_host_installs_execute_from_outside_the_project(self):
+        for host, directory in [('gemini', '.gemini'), ('kimi', '.agents')]:
+            with self.subTest(host=host), tempfile.TemporaryDirectory() as t:
+                base = Path(t); project = base/'project with spaces'
+                cmd = [sys.executable, str(ROOT/'scripts/install.py'), '--host', host,
+                       '--scope', 'project', '--project', str(project)]
+                result = subprocess.run(cmd, cwd=base, capture_output=True)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                folder = project/directory/'skills/value-investor-skill'
+                run = subprocess.run([sys.executable, str(folder/'scripts/investor.py'),
+                                      'demo', '--out', str(base/'demo')], cwd=base, capture_output=True)
+                self.assertEqual(run.returncode, 0, run.stderr)
+                self.assertEqual(subprocess.run(cmd, cwd=base, capture_output=True).returncode, 2)
+
+    def test_gemini_shared_alias_is_preserved_without_shadow_copy(self):
+        with tempfile.TemporaryDirectory() as t:
+            base = Path(t); shared = base/'.agents/skills/value-investor-skill'
+            shared.mkdir(parents=True); marker = shared/'keep.txt'; marker.write_text('existing')
+            self.assertEqual(install.main(['--host', 'gemini', '--scope', 'project', '--project', str(base)]), 2)
+            self.assertEqual(marker.read_text(), 'existing')
+            self.assertFalse((base/'.gemini').exists())
+
+    def test_kimi_does_not_duplicate_shared_codex_installation(self):
+        with tempfile.TemporaryDirectory() as t:
+            base = Path(t)
+            self.assertEqual(install.main(['--host', 'codex', '--scope', 'project', '--project', str(base)]), 0)
+            folder = base/'.agents/skills/value-investor-skill'
+            marker = folder/'keep.txt'; marker.write_text('saved work')
+            self.assertEqual(install.main(['--host', 'kimi', '--scope', 'project', '--project', str(base)]), 2)
+            self.assertEqual(marker.read_text(), 'saved work')
+
     def test_legacy_codex_copy_is_not_duplicated_or_deleted(self):
         with tempfile.TemporaryDirectory() as t:
             base = Path(t);legacy = base/'.codex/skills/value-investor-skill';legacy.mkdir(parents=True)

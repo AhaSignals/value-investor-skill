@@ -1,26 +1,20 @@
-# Value Investor Skill v0.2.1
+# Value Investor Skill v0.3.0
 
-A value-investing skill for Claude, GPT and DeepSeek: understand the business, test the valuation, challenge your thesis, and track what changes when the evidence changes.
+Start a value-investing research workflow in Claude, ChatGPT, DeepSeek, Grok, Gemini or Kimi. Copy the [English instructions](https://github.com/AhaSignals/value-investor-skill/blob/v0.3.0/prompts/START_HERE.md) or [中文指令](https://github.com/AhaSignals/value-investor-skill/blob/v0.3.0/prompts/START_HERE.zh-CN.md) into a new chat, then name a company.
 
-This patch fixes source/upload archive selection in cross-platform packaging validation. Runtime behavior is unchanged from 0.2.0.
+[Try without installing](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=release&utm_campaign=value_investor_launch_2026_11#start) · [Four-step fictional trial](https://github.com/AhaSignals/value-investor-skill/blob/v0.3.0/docs/compatibility.md#two-minute-acceptance-check)
 
-## Start with your assistant
+## What changed
 
-- **Claude / ChatGPT / DeepSeek chat:** copy the [portable research instructions](https://github.com/AhaSignals/value-investor-skill/blob/v0.2.1/prompts/START_HERE.md). [中文](https://github.com/AhaSignals/value-investor-skill/blob/v0.2.1/prompts/START_HERE.zh-CN.md). No terminal needed.
-- **Claude Code:** add marketplace `AhaSignals/value-investor-skill`, then install `value-investor@value-investor-skill`.
-- **GPT in Codex:** ask it to install this repository as a skill, or run `python3 scripts/install.py --host codex` from the source package.
-- **DeepSeek in a skill host:** use your configured Claude Code / Codex installation route. Ordinary DeepSeek chat can use the portable instructions.
+- Six named chat routes with clear browsing, code-execution and persistence limits.
+- Gemini CLI and Kimi Code installation, alongside Claude Code and Codex. Existing files are preserved; a shared Gemini alias is detected before installing a shadowed copy.
+- English/Chinese capability checks and a short trial: 33.3%, then 50.0%, then NEEDS_REVIEW when supporting evidence is withdrawn.
+- Assistant-specific feedback and official setup references.
 
-Start by asking: “Show me the fictional $40 example.” [App-specific steps and capability limits](https://github.com/AhaSignals/value-investor-skill/blob/v0.2.1/docs/hosts.md).
+## Downloads
 
-## Which download?
+- `value-investor-skill-upload-v0.3.0.zip`: self-contained skill instructions, references, examples and Python runtime tools for a supported upload interface.
+- `value-investor-skill-v0.3.0.zip`: complete source, installer, tests and documentation.
+- `SHA256SUMS`: checksums for both archives.
 
-- `value-investor-skill-upload-v0.2.1.zip`: compact skill folder for a supported custom-skill upload interface; includes instructions, references, examples and runtime Python tools.
-- `value-investor-skill-v0.2.1.zip`: complete source, installer, tests, documentation and plugin manifests.
-- `SHA256SUMS`: checksums for both files.
-
-Both packages run the offline demo. Code execution and durable storage depend on your host; a prompt alone does not create a verified ledger. AhaSignals has not certified equivalent model quality or every account-specific upload flow. Model service fees still apply.
-
-Also added: project-scoped installation, a local setup check, and preserved legacy Codex installations with migration guidance. Seven getting-started languages. CLI/report output remains English.
-
-The calculation engine is unchanged. Output version remains 0.1.0 to preserve prior ledger reproduction. Package/CLI version is 0.2.1. Fictional demo arithmetic is not an event probability or investment advice.
+The Python engine remains dependency-free and its calculation output version remains 0.1.0, preserving prior ledger reproduction. Prompt mode does not install tools or create a persistent ledger. Account features and AI service charges depend on the provider. No six-model inference benchmark or perfect compatibility is claimed. Fictional arithmetic is not an event probability or investment advice.

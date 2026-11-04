@@ -10,9 +10,9 @@ Untersuche das Geschäft, prüfe die Bewertungsannahmen und sieh, was der Kurs v
 
 ![Eine fiktive Aktie zu 40 Dollar: gleicher Kurs, unterschiedliche Annahmen](assets/demo.svg)
 
-### Mit Claude, GPT oder DeepSeek starten
+### Mit Claude, GPT, DeepSeek, Grok, Gemini oder Kimi starten
 
-Füge die [kopierfertigen Recherche-Anweisungen](prompts/START_HERE.md) in Claude, ChatGPT oder DeepSeek ein und bitte um eine Antwort auf Deutsch. Kein Terminal nötig. Für Claude Code gibt es ein Plugin, für Codex eine lokale Installation. [Anleitung nach App](docs/hosts.md). Welche Werkzeuge ausgeführt werden können, hängt von deiner App ab.
+Füge die [kopierfertigen Recherche-Anweisungen](prompts/START_HERE.md) in Claude, ChatGPT, DeepSeek, Grok, Gemini oder Kimi ein und bitte um eine Antwort auf Deutsch. Kein Terminal nötig. Für Claude Code gibt es ein Plugin, für Codex eine lokale Installation. [Anleitung nach App](docs/hosts.md). Welche Werkzeuge ausgeführt werden können, hängt von deiner App ab.
 
 ### In einer Minute ausprobieren
 
