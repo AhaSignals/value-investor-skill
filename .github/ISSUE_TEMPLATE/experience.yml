@@ -1,5 +1,5 @@
 name: Installation, research or translation feedback
-description: Tell us where the example or instructions stopped being useful.
+description: Tell us where company research, source retrieval or the examples stopped being useful.
 title: "[Experience] "
 body:
   - type: dropdown
@@ -9,6 +9,9 @@ body:
       options:
         - Chat instructions / two-minute trial
         - Browser example
+        - Company-name research / public-source retrieval
+        - Microsoft real-company example
+        - Offline source-capture replay
         - Local Python demo
         - Skill installation
         - Research workflow
@@ -32,16 +35,22 @@ body:
     id: language
     attributes:
       label: Guide language and version
-      placeholder: English, v0.3.0
+      placeholder: English, v0.5.0
+  - type: input
+    id: public_company
+    attributes:
+      label: Public company name or ticker (optional)
+      description: For a real-company attempt, name the public security only. Do not include holdings or account details.
+      placeholder: MSFT / Microsoft
   - type: textarea
     id: expected
     attributes:
       label: What did you expect, and what happened?
-      description: Include the command or sentence if useful. Do not include private holdings, personal paths, credentials or licensed documents.
+      description: Include the step, command or redacted error if useful. Did a source or missing field change your interpretation? Do not include private holdings, personal paths, credentials or licensed documents.
     validations:
       required: true
   - type: textarea
     id: environment
     attributes:
       label: Environment or suggested correction
-      description: For an installation problem, include OS, Python version and agent host. For a translation, quote the phrase and suggest an alternative.
+      description: For installation or source retrieval, include OS, Python version, host and report status (for example PARTIAL). For a translation, quote the phrase and suggest an alternative.
