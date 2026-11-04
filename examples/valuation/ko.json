@@ -1,0 +1,12 @@
+{
+  "price": 100,
+  "price_note": "Hypothetical USD 100 comparison price, not a market quote.",
+  "reviewed": true,
+  "required_return": 0.1,
+  "years": 5,
+  "rationale": "Illustrative analyst assumption after reviewing reported cash; maintenance capex, financing, stock compensation and current share basis remain sensitivity questions, not verified normalized owner earnings.",
+  "company": "Coca-Cola",
+  "method": "earnings_power",
+  "cash_per_share": 2.2,
+  "example_kind": "Illustrative assumptions, not a company valuation conclusion"
+}

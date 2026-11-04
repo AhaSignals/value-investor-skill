@@ -39,7 +39,7 @@ For updates, use `/plugin` to update the installed plugin. A plugin installation
 
 ## Claude web / desktop: upload
 
-Download `value-investor-skill-upload-v0.5.0.zip` from [the release](https://github.com/AhaSignals/value-investor-skill/releases/tag/v0.5.0). Keep the ZIP intact. In Claude, use **Customize → Skills → Create skill → Upload a skill**, then enable it. Code execution must be available for the Python workflow. Ask for the fictional demo and save its generated files if you need them later. Cloud sessions do not automatically retain a local ledger across chats. [Claude's current instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+Download `value-investor-skill-upload-v0.6.0.zip` from [the release](https://github.com/AhaSignals/value-investor-skill/releases/tag/v0.6.0). Keep the ZIP intact. In Claude, use **Customize → Skills → Create skill → Upload a skill**, then enable it. Code execution must be available for the Python workflow. Ask for the fictional demo and save its generated files if you need them later. Cloud sessions do not automatically retain a local ledger across chats. [Claude's current instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
 
 ## GPT / Codex: local skill
 

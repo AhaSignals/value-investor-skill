@@ -1,0 +1,527 @@
+{
+  "scan_schema": 1,
+  "company": "COCA COLA CO",
+  "currency": "USD",
+  "sector": "nonfinancial",
+  "units": "whole_currency_and_shares",
+  "fictional": false,
+  "cutoff": "2026-11-04T23:05:43.018479+00:00",
+  "price_basis": "split_adjusted_not_dividend_adjusted",
+  "comparable_regime": false,
+  "descriptive_history": false,
+  "comparability_notes": "Frozen SEC financial extract only. No price series or raw filing text redistributed. Latest reported vintages at capture; not historical pipeline availability.",
+  "financials": [
+    {
+      "date": "2021-12-31",
+      "period_start": "2021-01-01",
+      "period_type": "FY",
+      "available_at": "2024-02-20T18:21:24+00:00",
+      "observed_at": "2026-11-04T23:05:40.753729+00:00",
+      "status": "active",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "basis": "US GAAP annual consolidated; latest filed values at capture; reported share basis requires split review",
+      "field_sources": {
+        "revenue": [
+          {
+            "tag": "Revenues",
+            "unit": "USD",
+            "value": 38655000000,
+            "period_start": "2021-01-01",
+            "period_end": "2021-12-31",
+            "accession": "0000021344-24-000009",
+            "available_at": "2024-02-20T18:21:24+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/0000021344-24-000009-index.html"
+          }
+        ],
+        "net_income": [
+          {
+            "tag": "NetIncomeLoss",
+            "unit": "USD",
+            "value": 9771000000,
+            "period_start": "2021-01-01",
+            "period_end": "2021-12-31",
+            "accession": "0000021344-24-000009",
+            "available_at": "2024-02-20T18:21:24+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/0000021344-24-000009-index.html"
+          }
+        ],
+        "operating_cash_flow": [
+          {
+            "tag": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "value": 12625000000,
+            "period_start": "2021-01-01",
+            "period_end": "2021-12-31",
+            "accession": "0000021344-24-000009",
+            "available_at": "2024-02-20T18:21:24+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/0000021344-24-000009-index.html"
+          }
+        ],
+        "capex": [
+          {
+            "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "value": 1367000000,
+            "period_start": "2021-01-01",
+            "period_end": "2021-12-31",
+            "accession": "0000021344-24-000009",
+            "available_at": "2024-02-20T18:21:24+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/0000021344-24-000009-index.html"
+          }
+        ],
+        "cash": [
+          {
+            "tag": "CashAndCashEquivalentsAtCarryingValue",
+            "unit": "USD",
+            "value": 9684000000,
+            "period_start": null,
+            "period_end": "2021-12-31",
+            "accession": "0000021344-24-000009",
+            "available_at": "2024-02-20T18:21:24+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/0000021344-24-000009-index.html"
+          }
+        ],
+        "diluted_shares": [
+          {
+            "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "value": 4340000000,
+            "period_start": "2021-01-01",
+            "period_end": "2021-12-31",
+            "accession": "0000021344-24-000009",
+            "available_at": "2024-02-20T18:21:24+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/0000021344-24-000009-index.html"
+          }
+        ],
+        "debt": [
+          {
+            "tag": "LongTermDebt",
+            "unit": "USD",
+            "value": 39454000000,
+            "period_start": null,
+            "period_end": "2021-12-31",
+            "accession": "0000021344-23-000011",
+            "available_at": "2023-02-21T21:03:20+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134423000011/0000021344-23-000011-index.html"
+          },
+          {
+            "tag": "ShortTermBorrowings",
+            "unit": "USD",
+            "value": 3307000000,
+            "period_start": null,
+            "period_end": "2021-12-31",
+            "accession": "0000021344-23-000011",
+            "available_at": "2023-02-21T21:03:20+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134423000011/0000021344-23-000011-index.html"
+          }
+        ]
+      },
+      "missing_fields": [],
+      "revenue": 38655000000,
+      "net_income": 9771000000,
+      "operating_cash_flow": 12625000000,
+      "capex": 1367000000,
+      "cash": 9684000000,
+      "diluted_shares": 4340000000,
+      "debt": 42761000000
+    },
+    {
+      "date": "2022-12-31",
+      "period_start": "2022-01-01",
+      "period_type": "FY",
+      "available_at": "2025-02-20T20:17:12+00:00",
+      "observed_at": "2026-11-04T23:05:40.753729+00:00",
+      "status": "active",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "basis": "US GAAP annual consolidated; latest filed values at capture; reported share basis requires split review",
+      "field_sources": {
+        "revenue": [
+          {
+            "tag": "Revenues",
+            "unit": "USD",
+            "value": 43004000000,
+            "period_start": "2022-01-01",
+            "period_end": "2022-12-31",
+            "accession": "0000021344-25-000011",
+            "available_at": "2025-02-20T20:17:12+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/0000021344-25-000011-index.html"
+          }
+        ],
+        "net_income": [
+          {
+            "tag": "NetIncomeLoss",
+            "unit": "USD",
+            "value": 9542000000,
+            "period_start": "2022-01-01",
+            "period_end": "2022-12-31",
+            "accession": "0000021344-25-000011",
+            "available_at": "2025-02-20T20:17:12+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/0000021344-25-000011-index.html"
+          }
+        ],
+        "operating_cash_flow": [
+          {
+            "tag": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "value": 11018000000,
+            "period_start": "2022-01-01",
+            "period_end": "2022-12-31",
+            "accession": "0000021344-25-000011",
+            "available_at": "2025-02-20T20:17:12+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/0000021344-25-000011-index.html"
+          }
+        ],
+        "capex": [
+          {
+            "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "value": 1484000000,
+            "period_start": "2022-01-01",
+            "period_end": "2022-12-31",
+            "accession": "0000021344-25-000011",
+            "available_at": "2025-02-20T20:17:12+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/0000021344-25-000011-index.html"
+          }
+        ],
+        "cash": [
+          {
+            "tag": "CashAndCashEquivalentsAtCarryingValue",
+            "unit": "USD",
+            "value": 9519000000,
+            "period_start": null,
+            "period_end": "2022-12-31",
+            "accession": "0000021344-25-000011",
+            "available_at": "2025-02-20T20:17:12+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/0000021344-25-000011-index.html"
+          }
+        ],
+        "diluted_shares": [
+          {
+            "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "value": 4350000000,
+            "period_start": "2022-01-01",
+            "period_end": "2022-12-31",
+            "accession": "0000021344-25-000011",
+            "available_at": "2025-02-20T20:17:12+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/0000021344-25-000011-index.html"
+          }
+        ],
+        "debt": [
+          {
+            "tag": "LongTermDebt",
+            "unit": "USD",
+            "value": 36776000000,
+            "period_start": null,
+            "period_end": "2022-12-31",
+            "accession": "0000021344-24-000009",
+            "available_at": "2024-02-20T18:21:24+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/0000021344-24-000009-index.html"
+          },
+          {
+            "tag": "ShortTermBorrowings",
+            "unit": "USD",
+            "value": 2373000000,
+            "period_start": null,
+            "period_end": "2022-12-31",
+            "accession": "0000021344-23-000011",
+            "available_at": "2023-02-21T21:03:20+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000002134423000011/0000021344-23-000011-index.html"
+          }
+        ]
+      },
+      "missing_fields": [],
+      "revenue": 43004000000,
+      "net_income": 9542000000,
+      "operating_cash_flow": 11018000000,
+      "capex": 1484000000,
+      "cash": 9519000000,
+      "diluted_shares": 4350000000,
+      "debt": 39149000000
+    },
+    {
+      "date": "2023-12-31",
+      "period_start": "2023-01-01",
+      "period_type": "FY",
+      "available_at": "2026-02-20T14:46:32+00:00",
+      "observed_at": "2026-11-04T23:05:40.753729+00:00",
+      "status": "active",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "basis": "US GAAP annual consolidated; latest filed values at capture; reported share basis requires split review",
+      "field_sources": {
+        "revenue": [
+          {
+            "tag": "Revenues",
+            "unit": "USD",
+            "value": 45754000000,
+            "period_start": "2023-01-01",
+            "period_end": "2023-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "net_income": [
+          {
+            "tag": "NetIncomeLoss",
+            "unit": "USD",
+            "value": 10714000000,
+            "period_start": "2023-01-01",
+            "period_end": "2023-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "operating_cash_flow": [
+          {
+            "tag": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "value": 11599000000,
+            "period_start": "2023-01-01",
+            "period_end": "2023-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "capex": [
+          {
+            "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "value": 1852000000,
+            "period_start": "2023-01-01",
+            "period_end": "2023-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "cash": [
+          {
+            "tag": "CashAndCashEquivalentsAtCarryingValue",
+            "unit": "USD",
+            "value": 9366000000,
+            "period_start": null,
+            "period_end": "2023-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "diluted_shares": [
+          {
+            "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "value": 4339000000,
+            "period_start": "2023-01-01",
+            "period_end": "2023-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ]
+      },
+      "missing_fields": [
+        "debt: complete short/long-term definition unavailable; no zero assumed"
+      ],
+      "revenue": 45754000000,
+      "net_income": 10714000000,
+      "operating_cash_flow": 11599000000,
+      "capex": 1852000000,
+      "cash": 9366000000,
+      "diluted_shares": 4339000000,
+      "debt": null
+    },
+    {
+      "date": "2024-12-31",
+      "period_start": "2024-01-01",
+      "period_type": "FY",
+      "available_at": "2026-10-28T18:22:38+00:00",
+      "observed_at": "2026-11-04T23:05:40.753729+00:00",
+      "status": "active",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "basis": "US GAAP annual consolidated; latest filed values at capture; reported share basis requires split review",
+      "field_sources": {
+        "revenue": [
+          {
+            "tag": "Revenues",
+            "unit": "USD",
+            "value": 47061000000,
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "net_income": [
+          {
+            "tag": "NetIncomeLoss",
+            "unit": "USD",
+            "value": 10631000000,
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "operating_cash_flow": [
+          {
+            "tag": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "value": 6805000000,
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "capex": [
+          {
+            "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "value": 2064000000,
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "cash": [
+          {
+            "tag": "CashAndCashEquivalentsAtCarryingValue",
+            "unit": "USD",
+            "value": 10828000000,
+            "period_start": null,
+            "period_end": "2024-12-31",
+            "accession": "0001628280-26-067844",
+            "available_at": "2026-10-28T18:22:38+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/0001628280-26-067844-index.html"
+          }
+        ],
+        "diluted_shares": [
+          {
+            "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "value": 4320000000,
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ]
+      },
+      "missing_fields": [
+        "debt: complete short/long-term definition unavailable; no zero assumed"
+      ],
+      "revenue": 47061000000,
+      "net_income": 10631000000,
+      "operating_cash_flow": 6805000000,
+      "capex": 2064000000,
+      "cash": 10828000000,
+      "diluted_shares": 4320000000,
+      "debt": null
+    },
+    {
+      "date": "2025-12-31",
+      "period_start": "2025-01-01",
+      "period_type": "FY",
+      "available_at": "2026-10-28T18:22:38+00:00",
+      "observed_at": "2026-11-04T23:05:40.753729+00:00",
+      "status": "active",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "basis": "US GAAP annual consolidated; latest filed values at capture; reported share basis requires split review",
+      "field_sources": {
+        "revenue": [
+          {
+            "tag": "Revenues",
+            "unit": "USD",
+            "value": 47941000000,
+            "period_start": "2025-01-01",
+            "period_end": "2025-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "net_income": [
+          {
+            "tag": "NetIncomeLoss",
+            "unit": "USD",
+            "value": 13107000000,
+            "period_start": "2025-01-01",
+            "period_end": "2025-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "operating_cash_flow": [
+          {
+            "tag": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "value": 7408000000,
+            "period_start": "2025-01-01",
+            "period_end": "2025-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "capex": [
+          {
+            "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "value": 2112000000,
+            "period_start": "2025-01-01",
+            "period_end": "2025-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ],
+        "cash": [
+          {
+            "tag": "CashAndCashEquivalentsAtCarryingValue",
+            "unit": "USD",
+            "value": 10270000000,
+            "period_start": null,
+            "period_end": "2025-12-31",
+            "accession": "0001628280-26-067844",
+            "available_at": "2026-10-28T18:22:38+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/0001628280-26-067844-index.html"
+          }
+        ],
+        "diluted_shares": [
+          {
+            "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "value": 4313000000,
+            "period_start": "2025-01-01",
+            "period_end": "2025-12-31",
+            "accession": "0001628280-26-010047",
+            "available_at": "2026-02-20T14:46:32+00:00",
+            "source": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.html"
+          }
+        ]
+      },
+      "missing_fields": [
+        "debt: complete short/long-term definition unavailable; no zero assumed"
+      ],
+      "revenue": 47941000000,
+      "net_income": 13107000000,
+      "operating_cash_flow": 7408000000,
+      "capex": 2112000000,
+      "cash": 10270000000,
+      "diluted_shares": 4313000000,
+      "debt": null
+    }
+  ],
+  "valuations": [],
+  "bars": []
+}

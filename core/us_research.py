@@ -210,12 +210,22 @@ def provenance(fact, cik, accepted):
 
 
 def annual_financials(facts, issuer, cutoff, observed, accepted):
-    anchors = facts_for(facts, 'NetIncomeLoss', 'USD', cutoff, accepted)
-    if not anchors:
-        anchors = facts_for(facts, 'ProfitLoss', 'USD', cutoff, accepted)
-    periods = sorted({(r['start'], r['end']) for r in anchors if r.get('start') and r['form'].startswith('10-K')
-                      and 350 <= (date.fromisoformat(r['end'])-date.fromisoformat(r['start'])).days <= 380}, key=lambda p:p[1])[-5:]
+    # Taxonomies can switch over time. A stale NetIncomeLoss history must not
+    # suppress newer annual ProfitLoss periods.
+    anchors = [r for tag in TAGS['net_income'] for r in facts_for(facts, tag, 'USD', cutoff, accepted)]
+    candidates = {(r['start'], r['end']) for r in anchors if r.get('start') and r['form'].startswith('10-K')
+                  and 350 <= (date.fromisoformat(r['end'])-date.fromisoformat(r['start'])).days <= 380}
+    by_end = {}
+    for start, end in candidates:
+        by_end.setdefault(end, set()).add(start)
     rows, gaps = [], []
+    periods = []
+    for end in sorted(by_end)[-5:]:
+        starts = by_end[end]
+        if len(starts) != 1:
+            gaps.append(end + ': conflicting annual period starts; period withheld for source review')
+        else:
+            periods.append((next(iter(starts)), end))
     for start, end in periods:
         used, missing, values = {}, [], {}
         for metric, tags in TAGS.items():
@@ -427,8 +437,10 @@ def build_bundle(raw, manifest):
     if str(facts.get('cik')).zfill(10) != issuer['cik'] or str(submissions.get('cik')).zfill(10) != issuer['cik']:
         raise ResearchError("SEC response CIK does not match the resolved issuer")
     sic = str(submissions.get('sic',''))
-    if not re.fullmatch(r'\d{4}',sic) or 6000 <= int(sic) <= 6999 or not any(r['form']=='10-K' for r in filing_rows(submissions)):
+    if not re.fullmatch(r'\d{4}',sic) or 6000 <= int(sic) <= 6999:
         raise ResearchError("Automatic screen supports US GAAP 10-K nonfinancial operating companies; this issuer needs a sector-specific review")
+    if not any(r['form']=='10-K' for r in filing_rows(submissions)):
+        raise ResearchError("No annual 10-K in this resolved issuer's recent filing history. Review issuer identity and any predecessor before combining financial histories.")
     if issuer['ticker'] not in [str(t).upper() for t in submissions.get('tickers',[])]:
         raise ResearchError("SEC submissions do not confirm this security ticker")
     filings = filing_rows(submissions)

@@ -2,6 +2,10 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## v0.6 · Research desk
+
+Nouveau : un tableau de recherche local gratuit. Lancez `python3 scripts/investor.py desk` pour examiner les données financières réelles de Microsoft, Coca-Cola et Caterpillar. Trois méthodes de valorisation, analyse de sensibilité et notes exportables. Les hypothèses illustratives ne constituent ni une juste valeur vérifiée ni un conseil en investissement. [Guide (English)](docs/research-desk.md). Python 3.9+.
+
 ## Un nom de société américaine ou un symbole suffit
 
 Avec le skill complet, Python et un accès Internet, les données financières publiques de la SEC et les cours historiques sont récupérés automatiquement. Aucun formulaire JSON ni clé API. Dans un chat ordinaire, l’accès aux sources dépend de l’application.

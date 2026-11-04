@@ -65,6 +65,13 @@ def main(argv=None):
     s = sub.add_parser('replay', help='Rebuild research offline from a saved research folder and verified source hashes')
     s.add_argument('capture')
     s.add_argument('--out', required=True)
+    s = sub.add_parser('desk', help='Open the free local browser research desk')
+    s.add_argument('--port', type=int, default=8765)
+    s.add_argument('--workspace', default='output/desk')
+    for command in ('value', 'pit-check', 'review-forecasts'):
+        s = sub.add_parser(command, help='Explicit valuation / optional PIT gate / frozen forecast review')
+        s.add_argument('bundle')
+        s.add_argument('--out', help='New JSON file (existing files are preserved)')
     d = sub.add_parser("demo", help="Run a complete fictional before/after study")
     d.add_argument("--out", default="output/demo")
     s = sub.add_parser("scan", help="Screen supplied annual financials, monthly P/E and daily OHLC data")
@@ -102,7 +109,19 @@ def main(argv=None):
     s.add_argument("after")
     a = p.parse_args(argv)
     try:
-        if a.command in ('research', 'replay'):
+        if a.command == 'desk':
+            from core.desk import serve
+            serve(a.workspace, a.port)
+        elif a.command in ('value', 'pit-check', 'review-forecasts'):
+            from core.valuation import calculate, pit_check, review_forecasts
+            result = {'value':calculate, 'pit-check':pit_check, 'review-forecasts':review_forecasts}[a.command](read(a.bundle))
+            if a.out:
+                with Path(a.out).open('x', encoding='utf-8') as handle:
+                    json.dump(result, handle, indent=2, ensure_ascii=False, allow_nan=False)
+            emit(result)
+            if a.command == 'pit-check':
+                return {'PASS':0, 'FAIL':1, 'ERROR':2, 'UNKNOWN':3}.get(result.get('gate'), 2)
+        elif a.command in ('research', 'replay'):
             from core.us_research import collect, replay
             from datetime import datetime, timezone
             if a.command == 'research':

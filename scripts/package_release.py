@@ -13,7 +13,7 @@ from core import __version__
 
 
 def upload_files():
-    allowed = {"SKILL.md", "LICENSE", "core", "references", "examples", "prompts", "agents"}
+    allowed = {"SKILL.md", "LICENSE", "core", "references", "examples", "prompts", "agents", "assets", "docs"}
     runtime_scripts = {"investor.py", "fetch_sec.py", "doctor.py"}
     for path in public_files():
         rel = path.relative_to(ROOT)

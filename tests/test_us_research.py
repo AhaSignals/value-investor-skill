@@ -93,6 +93,22 @@ class USResearchTests(unittest.TestCase):
         self.assertIsNone(bundle['financials'][0]['capex'])
         self.assertIsNone(scan(bundle)['financials']['free_cash_flow'])
 
+    def test_new_profitloss_periods_not_hidden_by_stale_netincome_tag(self):
+        raw, manifest = fixtures()
+        gaap = raw['facts']['facts']['us-gaap']
+        gaap['NetIncomeLoss']['units']['USD'] = [fact(5, start='2009-01-01', end='2009-12-31')]
+        gaap['ProfitLoss'] = {'units':{'USD':[fact(20)]}}
+        rows, gaps = annual_financials(raw['facts'], ISSUER, timestamp(manifest['cutoff']), manifest['cutoff'], {})
+        self.assertEqual(rows[-1]['date'], '2024-12-31')
+        self.assertEqual(rows[-1]['net_income'], 20)
+
+    def test_conflicting_annual_start_dates_are_withheld_not_duplicated(self):
+        raw, manifest = fixtures()
+        raw['facts']['facts']['us-gaap']['NetIncomeLoss']['units']['USD'].append(fact(20,start='2023-12-31'))
+        rows, gaps = annual_financials(raw['facts'], ISSUER, timestamp(manifest['cutoff']), manifest['cutoff'], {})
+        self.assertEqual(rows, [])
+        self.assertIn('conflicting annual period starts', gaps[0])
+
     def test_quarter_cannot_replace_full_year(self):
         raw,manifest=fixtures()
         raw['facts']['facts']['us-gaap']['NetIncomeLoss']['units']['USD']=[fact(9,start='2024-10-01')]

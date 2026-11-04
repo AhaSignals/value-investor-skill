@@ -23,6 +23,12 @@ Read `research.md`, the screen flags and the local filing passages. Follow the r
 
 If access is blocked, report the exact missing module; continue with available financial evidence. For a no-network demonstration use `scan examples/msft-financials-2026-11-04.json --out <new-directory>`: this is a frozen real SEC financial example without price history. `replay <original-capture> --out <new-directory>` reproduces a private saved capture without network access. Preserve source cutoffs and label changed live results.
 
+## From idea to valuation desk
+
+For an interactive dashboard, a Buffett-style owner-earnings review, reverse DCF, cyclical normalization, bank valuation or catalyst follow-up, read [valuation desk](references/valuation-desk.md). Run `python3 scripts/investor.py desk` for the local UI, or `value` for deterministic scenario arithmetic. The desk includes three real frozen financial extracts, three valuation methods, a thesis notebook and optional PIT/forecast review. Choose the method from the business economics; do not auto-fill reported cash after capex as owner earnings. Draft evidence-backed assumptions for the user and clearly label unresolved normalization. Use the [three-company walkthrough](docs/research-desk.md) for examples; its valuation inputs are illustrative, not researched target prices.
+
+Use the model to organize a finite watchlist, extract and challenge evidence; use code to compute. Keep a catalyst as a dated next-evidence checkpoint. Do not claim whole-market coverage, free model service, unattended monitoring or a validated return backtest. For exported notebooks, remind the user to save before switching companies; notebook files and the source-revision ledger are distinct.
+
 ## Start with the actual question
 
 Identify the company/security, currency, research cutoff, event and requested horizon. Infer details already supplied; ask only when ambiguity changes the answer. For a first demonstration, run `python3 scripts/investor.py demo --out <new-output-directory>` from this skill's directory. The example is fictional; do not describe it as a real company or live run of market research.
@@ -47,7 +53,7 @@ For financial-statement, historical P/E, mean-reversion or daily-price screening
 
 All paths below are relative to this installed skill directory. Use an absolute script path when the user's working directory differs.
 
-- `scripts/investor.py`: research, replay, demo, scan-demo, scan, scan-batch, analyze, freeze, revise, update-evidence, history, show, compare, verify.
+- `scripts/investor.py`: desk, value, pit-check, review-forecasts, research, replay, demo, scan-demo, scan, scan-batch, analyze, freeze, revise, update-evidence, history, show, compare, verify.
 - `scripts/fetch_sec.py`: optional recent SEC filing-reference discovery by CIK and acceptance-time cutoff. Requires a user-provided `SEC_USER_AGENT` organization/contact identifier. It does not fetch every historical segment or validate a valuation. Never expose the identifier in reports.
 - Calculations and replay run offline; `research` explicitly fetches public SEC and price sources. Python 3.9+ with no third-party packages. The AI host supplies reasoning and optional browsing; its costs and data permissions still apply.
 - Historical cutoffs constrain supplied evidence, not the model's pretraining knowledge. For outcome-sensitive validation use prospectively registered cases or independently controlled evidence; do not claim the tool proves absence of model leakage.

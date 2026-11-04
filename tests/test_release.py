@@ -51,6 +51,11 @@ class ReleaseTests(unittest.TestCase):
                 run = subprocess.run([sys.executable, str(script), 'scan-demo', '--out', str(parent / ('scan-' + kind))], cwd=parent, capture_output=True, text=True)
                 self.assertEqual(run.returncode, 0, run.stderr)
                 self.assertTrue((parent / ('scan-' + kind) / 'pe-history.svg').is_file())
+                root = script.parents[1]
+                self.assertTrue((root / 'assets/desk.html').is_file())
+                self.assertTrue((root / 'assets/desk.js').is_file())
+                run = subprocess.run([sys.executable, str(script), 'value', str(root / 'examples/valuation/msft.json')], cwd=parent, capture_output=True, text=True)
+                self.assertEqual(run.returncode, 0, run.stderr)
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 {
   "name": "value-investor",
-  "version": "0.5.0",
-  "description": "Eight research workflows: scan financials, compare historical valuations, inspect prices, test scenarios and track evidence.",
+  "version": "0.6.0",
+  "description": "Free local value-investing desk: public filings, three valuation methods, reverse DCF, counterevidence and research snapshots.",
   "author": {
     "name": "AhaSignals"
   },

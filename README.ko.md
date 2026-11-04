@@ -2,6 +2,10 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## v0.6 · Research desk
+
+무료 로컬 리서치 화면을 추가했습니다. `python3 scripts/investor.py desk`로 실행하고 Microsoft, Coca-Cola, Caterpillar의 실제 재무 자료를 확인하세요. 3가지 가치평가 모델, 민감도 분석과 연구 메모 저장을 제공합니다. 예시 가정은 검증된 적정가치나 투자 권고가 아닙니다. [Guide (English)](docs/research-desk.md). Python 3.9+.
+
 ## 미국 주식 이름이나 티커만 입력하세요
 
 전체 스킬과 Python, 인터넷을 사용할 수 있는 환경에서는 SEC 재무자료와 공개 과거 주가를 자동으로 가져옵니다. JSON 작성이나 API 키가 필요 없습니다. 일반 채팅은 앱의 검색 기능에 따라 달라집니다.

@@ -1,47 +1,27 @@
-# Launch kit
+# Value Investor Desk · ready-to-use release copy
 
-Draft copy for publication by AhaSignals. Preparing this file does not post it to any external community.
+## English
 
-## v0.5.0: one company name, a reproducible research trail
+**Start with a company. Check the cash. Challenge the valuation.**
 
-**Enter MSFT. Fetch public filings and historical prices. See whether profit becomes cash, inspect historical P/E, and ask what would prove the thesis wrong.** One AI skill, eight research workflows. Full automation needs Python and network access; ordinary chat depends on the host.
+Value Investor Skill now includes a free local research desk: public SEC filings, three valuation methods, reverse DCF, sensitivity charts and a research notebook. One AI skill with eight workflows; portable instructions for Claude, ChatGPT, DeepSeek, Grok, Gemini and Kimi. Tools depend on your host.
 
-Real example, observed 2026-11-04: Microsoft FY2026 profit rose, while CFO minus cash capex fell from USD 71.611bn to 66.987bn. The next question is whether investment earns its cost. A lower historical P/E alone cannot answer it. [Inspect and reproduce the case](https://ahasignals.com/value-investor-skill/msft/?utm_source=github&utm_medium=launch_kit&utm_campaign=value_investor_launch_2026_11&utm_content=msft_case).
+Try three frozen real financial cases: Microsoft’s reinvestment, Coca-Cola’s profit-to-cash gap and Caterpillar’s cycle. Their financial histories come from dated SEC extracts; the valuation demonstrations use explicitly illustrative assumptions and hypothetical comparison prices.
 
-中文：**只输入 MSFT，自动取公开财报与历史行情。利润有没有变成现金？历史 PE 的折价是否有原因？什么证据会推翻判断？** 微软真实案例显示，利润增长时，扣除现金资本开支后的现金仍可能减少。代码免费开源；美股非金融经营企业优先，缺失字段保持未知。具备 Python 和联网能力的完整技能可自动执行，普通聊天模式取决于宿主工具。
+Run `python3 scripts/investor.py desk`. No model API, project account or pip dependencies for the desk. Python 3.9+; live capture needs internet. Review normalized cash and share assumptions before calculating. Optional AhaSignals PIT checks declared evidence timing, context and versions; it is not a complete market database or proof of returns.
 
-This is substantive release copy, not evidence of a community post or user adoption. Share only in channels that allow relevant project demonstrations; no mass messages, fake engagement or installation claims from clicks.
+[Inspect the walkthrough](https://ahasignals.com/value-investor-skill/desk/?utm_source=github&utm_medium=release&utm_campaign=value_investor_launch_2026_11&utm_content=desk) · [Get the code](https://github.com/AhaSignals/value-investor-skill)
 
-## One sentence
+## 中文
 
-**8 value-investing workflows in 1 AI skill: scan financials, compare historical P/E, inspect price trends, test valuations and challenge your thesis. For Claude, ChatGPT, DeepSeek, Grok, Gemini and Kimi. Zero-install chat; 3 fictional cases, 4 demo charts.**
+**输入一家公司。检查现金。挑战估值。**
 
-## Short demonstration
+Value Investor Skill 新增免费本地投研工作台：公开财报、三种估值方法、反向 DCF、敏感性图表和研究笔记。一个 AI skill、八个研究流程；提供 Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 的聊天指令，具体工具能力由宿主决定。
 
-A fictional stock trades at $40. With $80 and $20 states, the price-matching favorable weight is 33.3%. Change the favorable assumption to $60 and the weight becomes 50%. These are conditional weights, not event probabilities.
+从三个真实财务案例开始：微软的再投资、可口可乐的利润与现金差异、卡特彼勒的周期。财务历史来自带日期的 SEC 摘录；估值演示采用明确标注的示意假设和虚构比较价格。
 
-Then withdraw the evidence supporting the favorable economics. The tool withholds those values and keeps the old research intact.
+运行 `python3 scripts/investor.py desk`。研究台需要 Python 3.9+，无需项目账号、模型 API 或 pip 依赖。联网取数需要网络；估值前须复核归一化现金与股数口径。可选 AhaSignals PIT 检查证据时间、口径与版本，不是全市场历史数据库或收益保证。
 
-Run it locally with Python 3.9+, no pip packages or API key. Real company research uses your AI assistant and reviewed primary sources.
+[查看研究演示](https://ahasignals.com/value-investor-skill/desk/?utm_source=github&utm_medium=release&utm_campaign=value_investor_launch_2026_11&utm_content=zh_desk) · [获取开源代码](https://github.com/AhaSignals/value-investor-skill)
 
-Repository: https://github.com/AhaSignals/value-investor-skill
-
-## 中文介绍
-
-**这只股票，值现在这个价吗？**
-
-1 个 AI skill，8 个价值投资流程：扫描财报、比较历史 PE、查看价格背景、看业务、算情景、查股价假设、找反证、复核证据变化。提供 3 个虚构案例、4 张演示图和 HTML / Markdown / JSON 输出。Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 可直接复制指令试用。
-
-一分钟离线演示：同样 40 美元的价格，换一个有利情景，价格匹配权重就从 33.3% 变成 50%。再撤回支撑该情景的资料，相关估值立即停止输出，原来的研究仍保留。
-
-这些权重不是成功概率。项目不连接券商，也不承诺投资收益。代码与原创虚构案例采用 MIT 许可。
-
-## First-month distribution experiment
-
-1. Launch a tested release with English/Chinese instructions and the reproducible before/after demo.
-2. Collect installation failures and confusing output labels; fix these before expanding scope.
-3. Invite reproducible, redacted cases through repository issues. Ask what changed a research conclusion, not whether an AI target price looked impressive.
-4. Share a concise demonstration in relevant skill and investing communities only when their posting rules allow it and a publisher chooses to post.
-5. Publish a follow-up showing actual fixes, contributor cases and unresolved limits.
-
-Track release downloads, issues that reproduce, installation success reports, repeat contributors and stars. A star goal is an aspiration, not a forecast. There is no evidence here supporting a promise of 10,000 stars in one month; do not buy engagement or use unsolicited mass outreach.
+Research and education only. AI service fees, if used, remain separate. Publication of this copy in the repository is not evidence of user trials or community adoption.

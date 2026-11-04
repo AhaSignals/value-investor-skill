@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0 — 2026-11-05
+
+- Add a dependency-free loopback research desk with public-source capture, three frozen SEC cases, reviewed valuation inputs, sensitivity visualization and exportable thesis snapshots.
+- Add equity DCF/reverse growth, normalized earning power and common-equity residual income; illustrative fixtures are not company fair-value findings.
+- Delegate optional PIT batches to the real AhaSignals checker; missing dependency stays UNKNOWN. Review declared frozen financial forecasts without claiming a return backtest.
+- Fix annual extraction across NetIncomeLoss/ProfitLoss tag changes; withhold conflicting period starts and distinguish missing issuer history from sector exclusions.
+- Extend seven language guides and both release archives. No model API calls, brokerage execution or public hosting service.
+
 ## 0.5.0 — 2026-11-04
 
 - Research a supported US company from its name/ticker: SEC filings and financial facts, public historical daily prices, dated screens and a research brief.

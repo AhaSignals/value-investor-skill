@@ -2,6 +2,20 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## From a stock name to a checkable valuation
+
+**A free local research desk: fetch public filings, inspect cash generation, test three valuation methods, and save what would change your mind.** One AI skill, eight research workflows. Python 3.9+, no model API or pip dependencies for the desk.
+
+```bash
+git clone https://github.com/AhaSignals/value-investor-skill.git
+cd value-investor-skill
+python3 scripts/investor.py desk
+```
+
+Open the printed local URL. Choose a frozen **Microsoft, Coca-Cola or Caterpillar** example offline, or enter a supported US company for fresh sources. Load an explicitly illustrative scenario to learn the controls, then review and change its assumptions. Your assistant can handle the same workflow from a company name when it has the full project, Python and network access.
+
+**3 real financial datasets · 3 valuation methods · reverse DCF · sensitivity chart/table · thesis snapshots · optional PIT checks.** Normalized cash and valuation assumptions need review; the desk does not invent a fair value from a ticker. AI service fees, if used, remain separate. [Walk through the three companies](docs/research-desk.md) · [Models and limits](references/valuation-desk.md) · [AhaSignals research desk guide](https://ahasignals.com/value-investor-skill/desk/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=desk).
+
 ## Just enter a US stock name or ticker
 
 > **Research MSFT. Fetch public filings and historical prices, explain profits versus cash, and show the strongest counterevidence.**
@@ -24,7 +38,7 @@ Open `output/msft/research.html`. The report links financial statements, descrip
 
 For Claude, ChatGPT (GPT), DeepSeek, Grok, Gemini and Kimi. Start with a company name or a question. Copy the instructions into chat with no installation, or install the full skill for local Python calculations and saved research.
 
-**1 real SEC financial case · 6 chat assistants · 7 language guides · 3 fictional case studies · 4 demo illustrations · HTML, Markdown and JSON reports.**
+**3 real SEC financial cases · 6 chat assistants · 7 language guides · 3 fictional case studies · 4 demo illustrations · HTML, Markdown and JSON reports.**
 
 **Free, MIT, no project signup.** Your AI service's account, tool access and fees still apply.
 
@@ -35,7 +49,7 @@ For Claude, ChatGPT (GPT), DeepSeek, Grok, Gemini and Kimi. Start with a company
 | You use | Start here |
 | --- | --- |
 | **Claude, ChatGPT, DeepSeek, Grok, Gemini or Kimi chat** | Copy [these ready-to-paste instructions](prompts/START_HERE.md), then ask about a company. No terminal needed. |
-| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.5.0/value-investor-skill-upload-v0.5.0.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
+| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.6.0/value-investor-skill-upload-v0.6.0.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
 | **Claude Code** | Run the two plugin commands below. |
 | **Gemini CLI or Kimi Code** | Install the same skill with `--host gemini` or `--host kimi`. [Steps](docs/hosts.md#gemini-cli-and-kimi-code). |
 | **GPT in Codex** | Ask it to install this repository as a skill. [Steps](docs/hosts.md#gpt--codex-local-skill). |

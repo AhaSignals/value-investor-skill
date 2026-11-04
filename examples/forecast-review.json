@@ -1,0 +1,15 @@
+{
+  "example_kind": "Fully fictional financial forecasts and outcomes",
+  "rows": [
+    {
+      "metric": "cash_after_capex",
+      "unit": "USD millions",
+      "forecast": 100,
+      "actual": 80,
+      "frozen_at": "2024-01-01T00:00:00Z",
+      "period_end": "2024-12-31T00:00:00Z",
+      "actual_available_at": "2025-02-01T00:00:00Z",
+      "source": "https://example.org/fictional-financials"
+    }
+  ]
+}

@@ -2,6 +2,10 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## v0.6 · Research desk
+
+無料のローカル研究画面を追加しました。`python3 scripts/investor.py desk` で起動し、Microsoft・Coca-Cola・Caterpillar の実際の財務データを確認できます。3 種類の評価モデル、感応度分析、研究メモの保存に対応。評価の前提は例示であり、投資判断や適正価格の保証ではありません。 [Guide (English)](docs/research-desk.md). Python 3.9+.
+
 ## 米国株の会社名かティッカーだけで開始
 
 完全版スキルと Python・ネット接続がある環境では、SEC 財務データと公開の過去株価を自動取得します。JSON の準備や API キーは不要です。通常のチャットではアプリの閲覧機能に依存します。

@@ -2,6 +2,20 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## 从一个股票名称，到可以检查的估值
+
+**免费的本地投研工作台：获取公开财报、检查现金创造能力、比较三种估值方法，保存哪些证据会改变你的判断。** 1 个 AI skill、8 个研究流程。研究台需要 Python 3.9+，不需要模型 API 或 pip 依赖。
+
+```bash
+git clone https://github.com/AhaSignals/value-investor-skill.git
+cd value-investor-skill
+python3 scripts/investor.py desk
+```
+
+打开终端显示的本地网址。离线选择**微软、可口可乐、卡特彼勒**的真实财务摘录，或输入支持的美股名称获取新资料。可先载入明确标注的“示意假设”，复核后计算，再修改假设观察变化。拥有完整项目、Python 和联网能力的助手，可以从公司名称替你完成同一流程。
+
+**3 份真实财务数据 · 3 种估值方法 · 反向 DCF · 敏感性图表 · 观点快照 · 可选 PIT 检查。** 归一化现金和估值参数需要研究与复核；不会仅凭代码生成一个“公允价值”。若使用 AI 服务，其费用另计。[三家公司研究演示](docs/research-desk.md) · [公式与边界](references/valuation-desk.md) · [AhaSignals 研究台指南](https://ahasignals.com/value-investor-skill/desk/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=zh_desk)。Windows 可用 `py -3` 替换 `python3`。
+
 ## 只输入美股名称或代码
 
 > **研究 MSFT。自动获取公开财报和历史行情，解释利润与现金流的差异，并找出最强反证。**
@@ -35,7 +49,7 @@ python3 scripts/investor.py research Microsoft --out output/msft
 | 你使用的产品 | 最快入口 |
 | --- | --- |
 | **Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 聊天** | 把[这份完整中文指令](prompts/START_HERE.zh-CN.md)复制到新对话，再输入公司名称。无需终端。 |
-| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.5.0/value-investor-skill-upload-v0.5.0.zip)，在 Customize → Skills 中启用。 |
+| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.6.0/value-investor-skill-upload-v0.6.0.zip)，在 Customize → Skills 中启用。 |
 | **Claude Code** | 输入下方两条插件命令。 |
 | **Gemini CLI 或 Kimi Code** | 用 `--host gemini` 或 `--host kimi` 安装同一个技能。[步骤](docs/hosts.md#gemini-cli-and-kimi-code)。 |
 | **使用 GPT 的 Codex** | 请它把本仓库安装为 skill；或使用下方 Python 安装器。 |
