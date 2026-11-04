@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-11-04
+
+- Add three research screens to the existing skill: annual financial statements, historical trailing P/E and daily price context (eight workflows total).
+- Add offline `scan`, `scan-demo` and `scan-batch` commands with HTML/Markdown/JSON reports, source rows, exclusions and up to three SVG charts.
+- Check publication/observation cutoffs, EPS availability at historical closes, annual periods, split-adjustment declarations, nonpositive earnings, missing history and source withdrawal. Comparisons are descriptive; mean-reversion probabilities and fair value are not estimated.
+- Add a fictional manufacturing case with low P/E but negative cash after capex, higher net debt and dilution. Extend all seven language guides with questions, examples and limitations.
+- Source acquisition and extraction remain host-assisted; no automatic market-universe scan or arbitrary PDF parser. Scanner output version is 1.0.0. Existing scenario output version remains 0.1.0; prior ledgers are unchanged.
+
 ## 0.3.0 — 2026-11-04
 
 - Add explicit Grok, Gemini and Kimi chat routes alongside Claude, ChatGPT and DeepSeek.

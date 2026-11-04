@@ -8,7 +8,25 @@ Investiga el negocio, comprueba las hipótesis de valoración y descubre qué te
 
 [Probar la demo en el navegador](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=es_demo) · [Ejemplo antes y después](docs/demo.md) · [Licencia MIT](LICENSE)
 
-**1 skill con 5 flujos de investigación, 2 casos ficticios, 1 ilustración de demostración y salidas HTML, Markdown y JSON.**
+**1 skill con 8 flujos de investigación, 3 casos ficticios, 4 ilustraciones, 6 accesos a asistentes y guías en 7 idiomas. Informes HTML, Markdown y JSON.**
+
+### Revisa las cuentas, el PER histórico y los precios
+
+| Análisis | Qué muestra |
+| --- | --- |
+| Estados financieros anuales | Crecimiento de ingresos, margen, conversión del beneficio en caja, flujo tras inversiones, deuda neta y dilución |
+| PER histórico | Media, mediana y percentil de observaciones mensuales anteriores; se omite la comparación con pérdidas o condiciones no comparables |
+| Contexto del precio | OHLC diario, medias de 50/200 observaciones y caídas desde máximos; no predice rebotes |
+
+Junto con el análisis del negocio, escenarios de valoración, supuestos del precio, contraargumentos y seguimiento de evidencias, son ocho flujos. El fabricante ficticio cotiza a un PER de 10 frente a una mediana histórica de 20. Sin embargo, tiene 15 millones de beneficio, 5 millones de flujo operativo y 8 millones de inversión: quedan menos 3 millones. También aumentan la deuda neta y el número de acciones.
+
+> Investiga los informes anuales de [empresa]. ¿Se convierte el beneficio en caja? ¿El PER bajo refleja un cambio en el negocio? Usa los precios diarios como contexto y presenta los contraargumentos y el próximo documento que revisar. Cita fuentes y fechas; deja desconocidos los datos que falten.
+
+```bash
+python3 scripts/investor.py scan-demo --out output/value-trap
+```
+
+Abre `output/value-trap/scan.html` para ver tres gráficos y las preguntas de investigación. El asistente puede preparar los datos de informes y fuentes de precios autorizadas para `scan` o `scan-batch`. No descarga automáticamente todo el mercado ni interpreta cualquier PDF. [Formato de entrada](references/scan-input.md) · [Método y reversión a la media](references/scanning.md). El PER medio histórico no es el valor razonable. La reversión exige una causa económica y pruebas que puedan refutarla. Bancos, aseguradoras y sociedades inmobiliarias requieren otros indicadores.
 
 ![Una acción ficticia a 40 dólares: el mismo precio, distintas hipótesis](assets/demo.svg)
 

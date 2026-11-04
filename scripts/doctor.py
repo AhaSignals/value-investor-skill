@@ -10,9 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def check(root=ROOT):
-    required = ('SKILL.md', 'core/research.py', 'core/ledger.py', 'scripts/investor.py',
+    required = ('SKILL.md', 'core/research.py', 'core/ledger.py', 'core/scanner.py', 'scripts/investor.py',
                 'references/input-contract.md', 'references/research-protocol.md',
-                'examples/clinical.json', 'examples/merger.json', 'prompts/START_HERE.md')
+                'examples/clinical.json', 'examples/merger.json', 'examples/value-trap.json',
+                'references/scanning.md', 'references/scan-input.md', 'prompts/START_HERE.md')
     checks = {'python_3_9_or_newer': sys.version_info >= (3, 9),
               'complete_package': all((root / p).is_file() for p in required)}
     try:

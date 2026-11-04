@@ -4,11 +4,11 @@
 
 ## Is this stock worth its price?
 
-**5 value-investing workflows in 1 AI skill: analyze the business, test valuation scenarios, check what the stock price assumes, challenge your investment thesis, and review what changes when the evidence changes.**
+**8 value-investing workflows in 1 AI skill: scan financial statements, compare historical P/E, inspect price trends, understand the business, test valuations, check price assumptions, challenge your thesis, and track evidence changes.**
 
 For Claude, ChatGPT (GPT), DeepSeek, Grok, Gemini and Kimi. Start with a company name or a question. Copy the instructions into chat with no installation, or install the full skill for local Python calculations and saved research.
 
-**6 chat assistants · 7 language guides · 2 fictional case studies · HTML, Markdown and JSON reports.**
+**6 chat assistants · 7 language guides · 3 fictional case studies · 4 demo illustrations · HTML, Markdown and JSON reports.**
 
 **Free, MIT, no project signup.** Your AI service's account, tool access and fees still apply.
 
@@ -19,7 +19,7 @@ For Claude, ChatGPT (GPT), DeepSeek, Grok, Gemini and Kimi. Start with a company
 | You use | Start here |
 | --- | --- |
 | **Claude, ChatGPT, DeepSeek, Grok, Gemini or Kimi chat** | Copy [these ready-to-paste instructions](prompts/START_HERE.md), then ask about a company. No terminal needed. |
-| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.3.0/value-investor-skill-upload-v0.3.0.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
+| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.4.0/value-investor-skill-upload-v0.4.0.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
 | **Claude Code** | Run the two plugin commands below. |
 | **Gemini CLI or Kimi Code** | Install the same skill with `--host gemini` or `--host kimi`. [Steps](docs/hosts.md#gemini-cli-and-kimi-code). |
 | **GPT in Codex** | Ask it to install this repository as a skill. [Steps](docs/hosts.md#gpt--codex-local-skill). |
@@ -70,7 +70,7 @@ You can also use `npx skills add AhaSignals/value-investor-skill --skill value-i
 2. Ask for the fictional USD 40 example. Then ask it to withdraw the evidence.
 3. [Check the expected result](docs/compatibility.md#two-minute-acceptance-check), or [report where you got stuck](https://github.com/AhaSignals/value-investor-skill/issues/new?template=experience.yml).
 
-## Five questions, inspectable answers
+## Eight questions, inspectable answers
 
 | Ask | Get |
 | --- | --- |
@@ -79,6 +79,9 @@ You can also use `npx skills add AhaSignals/value-investor-skill --skill value-i
 | **What does the price already assume?** | Price-matching assumptions, with underidentification made visible. |
 | **What am I missing?** | Counterevidence, missing inputs and reasons to withhold conclusions. |
 | **What changed since last time?** | New evidence, affected estimates and preserved prior versions. |
+| **Do profits turn into cash?** | Annual cash conversion, CFO minus capex, net debt and share dilution. |
+| **Is this P/E low for a reason?** | Prior-month mean, median and percentile, with loss years and noncomparable regimes withheld. |
+| **What does the price history add?** | Daily OHLC checks, 50/200-observation averages and drawdowns; context for research. |
 
 The business analysis and source judgments are performed by your AI assistant/researcher. The CLI does not independently discover a company's intrinsic value or generate a validated probability. Read the [research protocol](references/research-protocol.md).
 
@@ -86,14 +89,41 @@ The business analysis and source judgments are performed by your AI assistant/re
 
 | Item | Included in this repository |
 | --- | --- |
-| **1 installable skill** | One root `SKILL.md` with five workflows: business analysis, valuation scenarios, price assumptions, counterevidence and evidence updates. |
-| **2 fictional case studies** | A clinical-stage company with a source-withdrawal revision, and a fixed-cash merger. [Run both](docs/demo.md). |
-| **1 demo illustration** | The USD 40 example in [SVG](assets/demo.svg) and [PNG](assets/demo.png); two formats of the same figure. |
+| **1 installable skill** | One root `SKILL.md` with eight research workflows, including financial statements, valuation history and price context. |
+| **3 fictional case studies** | A clinical-stage company with a source-withdrawal revision, a fixed-cash merger, and a low-P/E manufacturer with deteriorating cash generation. [Run the cases](docs/demo.md). |
+| **4 demo illustrations** | The USD 40 example (SVG/PNG count once), plus [cash versus profit](assets/cash-vs-profit.svg), [P/E history](assets/pe-history.svg) and [price context](assets/price-context.svg). |
 | **3 report formats** | Local HTML and Markdown research reports, plus structured JSON output. |
 | **6 chat assistants** | Claude, ChatGPT, DeepSeek, Grok, Gemini and Kimi via portable instructions; available tools depend on the host. [Routes and verification](docs/hosts.md). |
 | **7 language guides** | English, Chinese, Japanese, Korean, German, French and Spanish. Copy-ready prompts are English/Chinese; generated CLI reports are English. |
 
 The local engine calculates supplied scenarios, checks source cutoffs and preserves SQLite research versions. Use it for fundamental stock analysis, valuation scenarios and investment-thesis review.
+
+## A low P/E. A reason to look closer.
+
+The fictional manufacturer trades at **10× earnings versus a prior-month median of 20×**. But annual profit is 15 million, operating cash flow is 5 million, and capex is 8 million: **CFO minus capex is negative 3 million**. Net debt and diluted shares have increased. The screen asks whether the discount reflects temporary investment or lasting deterioration.
+
+![Fictional annual profit versus cash after capex](assets/cash-vs-profit.svg)
+
+Ask in your existing chat:
+
+> Research [company] using its annual reports. Do profits turn into cash? Is its P/E low because the business changed? Use daily prices as context, then give the strongest counterevidence and the next filing to check. Show sources and leave missing data unknown.
+
+Or run the complete offline case:
+
+```bash
+python3 scripts/investor.py scan-demo --out output/value-trap
+```
+
+Open `output/value-trap/scan.html`: three charts, dated measurements, excluded evidence and next research questions. To scan your own company or a supplied watchlist, the assistant can assemble reviewed data from filings and permitted price exports:
+
+```bash
+python3 scripts/investor.py scan company.json --out output/company
+python3 scripts/investor.py scan-batch watchlist.json --out output/watchlist
+```
+
+The CLI screens **supplied normalized data**; it does not fetch the whole market or automatically parse arbitrary PDFs. Chat uses the same questions; executable reports require Python and files. [Input format](references/scan-input.md) · [Method and mean-reversion limits](references/scanning.md).
+
+Historical P/E is a comparison, not fair value. Moving averages are price context, not reversal forecasts. A mean-reversion thesis needs a business mechanism, a comparable regime and evidence that could prove it wrong. Banks, insurers and property trusts require different accounting screens.
 
 ## The $40 example
 

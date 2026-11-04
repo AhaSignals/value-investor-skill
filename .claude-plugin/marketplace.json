@@ -7,7 +7,7 @@
     {
       "name": "value-investor",
       "source": "./",
-      "description": "Five value-investing research workflows in one skill, with optional local Python tools."
+      "description": "Eight value-investing research workflows in one skill, with optional local Python tools."
     }
   ],
   "description": "AhaSignals value-investing research skill with scenario calculations and evidence revision history."

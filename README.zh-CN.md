@@ -4,11 +4,11 @@
 
 ## 这只股票，值现在这个价吗？
 
-**1 个 AI skill，5 个价值投资研究流程：看懂公司业务、计算估值情景、检查股价隐含假设、挑战投资观点，并在证据变化后复核原判断。**
+**1 个 AI skill，8 个价值投资研究流程：扫描财报、比较历史 PE、查看价格趋势、看懂业务、计算估值情景、检查股价假设、寻找反证、追踪证据变化。**
 
 适用于 Claude、ChatGPT（GPT）、DeepSeek、Grok、Gemini 和 Kimi。从公司名称或一个问题开始。复制指令即可免安装聊天；安装完整技能后，可运行本地 Python 计算并保存研究版本。
 
-**6 个聊天工具入口 · 7 种语言指南 · 2 个虚构案例 · HTML、Markdown、JSON 三种输出。**
+**6 个聊天工具入口 · 7 种语言指南 · 3 个虚构案例 · 4 张演示图 · HTML、Markdown、JSON 三种输出。**
 
 **免费、MIT 开源、不需要注册项目账号。** AI 服务本身的账号、工具权限和费用仍适用。
 
@@ -19,7 +19,7 @@
 | 你使用的产品 | 最快入口 |
 | --- | --- |
 | **Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 聊天** | 把[这份完整中文指令](prompts/START_HERE.zh-CN.md)复制到新对话，再输入公司名称。无需终端。 |
-| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.3.0/value-investor-skill-upload-v0.3.0.zip)，在 Customize → Skills 中启用。 |
+| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.4.0/value-investor-skill-upload-v0.4.0.zip)，在 Customize → Skills 中启用。 |
 | **Claude Code** | 输入下方两条插件命令。 |
 | **Gemini CLI 或 Kimi Code** | 用 `--host gemini` 或 `--host kimi` 安装同一个技能。[步骤](docs/hosts.md#gemini-cli-and-kimi-code)。 |
 | **使用 GPT 的 Codex** | 请它把本仓库安装为 skill；或使用下方 Python 安装器。 |
@@ -70,7 +70,7 @@ python3 scripts/investor.py demo --out output/first-demo
 2. 请助手演示虚构的 40 美元案例，再要求撤回证据。
 3. [核对预期结果](docs/compatibility.md#two-minute-acceptance-check)，或[反馈卡住的步骤](https://github.com/AhaSignals/value-investor-skill/issues/new?template=experience.yml)。
 
-## 五个问题
+## 八个问题
 
 | 你想知道 | 得到什么 |
 | --- | --- |
@@ -79,6 +79,9 @@ python3 scripts/investor.py demo --out output/first-demo
 | 现在的价格要求什么？ | 支撑现价的多组假设，不强造唯一概率 |
 | 我忽略了什么？ | 反证、缺失资料、暂缓结论的原因 |
 | 跟上次相比变了什么？ | 新证据、受影响估值、保留下来的旧版本 |
+| 利润变成现金了吗？ | 年度现金转化、经营现金流减资本支出、净债务、股数稀释 |
+| PE 低，是不是有原因？ | 历史月度均值、中位数、分位数；亏损与不可比情形暂缓比较 |
+| 价格历史说明了什么？ | 日线 OHLC 检查、50/200 个观察值均线和回撤，作为研究背景 |
 
 业务判断与来源审查由助手或研究者完成。CLI 不会独立发现公司真实价值，也不会生成已验证的成功概率。具体方法见[研究协议](references/research-protocol.md)。
 
@@ -86,14 +89,41 @@ python3 scripts/investor.py demo --out output/first-demo
 
 | 项目 | 实际内容 |
 | --- | --- |
-| **1 个可安装 skill** | 根目录一份 `SKILL.md`，包含业务分析、估值情景、价格假设、寻找反证、证据更新五个流程。 |
-| **2 个虚构案例** | 临床阶段公司的估值与来源撤回修订，以及固定现金收购案例。[运行说明](docs/demo.md)。 |
-| **1 张演示图** | 40 美元案例的 [SVG](assets/demo.svg) 和 [PNG](assets/demo.png)，是同一张图的两种格式。 |
+| **1 个可安装 skill** | 根目录一份 `SKILL.md`，包含八个研究流程，新增财报、历史估值和价格背景扫描。 |
+| **3 个虚构案例** | 临床阶段公司、固定现金收购、低 PE 但现金流恶化的制造企业。[运行说明](docs/demo.md)。 |
+| **4 张演示图** | 40 美元案例（SVG/PNG 只计一次），以及[利润与现金](assets/cash-vs-profit.svg)、[历史 PE](assets/pe-history.svg)、[价格背景](assets/price-context.svg)。 |
 | **3 种报告格式** | 本地 HTML、Markdown 研究报告和结构化 JSON 输出。 |
 | **6 个聊天工具入口** | Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 可使用通用指令；实际工具能力取决于宿主。[安装与验证范围](docs/hosts.md)。 |
 | **7 种语言指南** | 英、中、日、韩、德、法、西；可直接复制的指令为中英文，CLI 生成报告为英文。 |
 
 本地引擎负责已提供情景的计算、来源截止时间检查和 SQLite 研究版本保存。适用于股票基本面分析、估值情景研究和投资观点复核。
+
+## PE 只剩历史一半，值得买吗？先查现金。
+
+虚构制造企业的 **PE 为 10 倍，历史月度中位数为 20 倍**。但年净利润 1500 万、经营现金流 500 万、资本支出 800 万：**经营现金流减资本支出为负 300 万**。净债务和稀释股数还在增加。扫描结果会追问这是暂时投入，还是经营质量发生了持久变化。
+
+![虚构制造企业的利润与资本支出后现金流](assets/cash-vs-profit.svg)
+
+直接向聊天助手提问：
+
+> 根据财报研究[公司]：利润变成现金了吗？PE 低是否因为业务发生了变化？把日线价格作为背景，然后列出最强反证和下一份应查的资料。给出来源，缺失信息保持未知。
+
+本地运行完整虚构演示：
+
+```bash
+python3 scripts/investor.py scan-demo --out output/value-trap
+```
+
+打开 `output/value-trap/scan.html`，查看三张图、带日期的指标、被排除的证据和下一步研究问题。真实公司和自选列表可由助手从财报及获准使用的价格数据中整理输入：
+
+```bash
+python3 scripts/investor.py scan company.json --out output/company
+python3 scripts/investor.py scan-batch watchlist.json --out output/watchlist
+```
+
+CLI 扫描的是**已提供并整理好的数据**，不自动抓取全市场或解析任意 PDF。普通聊天可以使用同样的问题，执行报告需要 Python 与文件权限。[数据格式](references/scan-input.md) · [扫描方法与均值回归边界](references/scanning.md)。
+
+历史 PE 是比较基准，不是合理价值；均线是价格背景，不预测反转。均值回归需要经营机制、可比环境和可推翻它的证据。银行、保险与房地产信托需要不同的财务分析口径。
 
 ## 40美元的例子
 

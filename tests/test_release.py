@@ -42,6 +42,15 @@ class ReleaseTests(unittest.TestCase):
             script = parent / 'extracted/value-investor-skill/scripts/investor.py'
             run = subprocess.run([sys.executable, str(script), 'demo', '--out', str(parent / 'demo')], cwd=parent, capture_output=True, text=True)
             self.assertEqual(run.returncode, 0, run.stderr)
+            for kind in ('source', 'upload'):
+                if kind == 'upload':
+                    upload = out / ('value-investor-skill-upload-v' + __version__ + '.zip')
+                    with zipfile.ZipFile(upload) as package:
+                        package.extractall(parent / 'upload')
+                    script = parent / 'upload/value-investor-skill/scripts/investor.py'
+                run = subprocess.run([sys.executable, str(script), 'scan-demo', '--out', str(parent / ('scan-' + kind))], cwd=parent, capture_output=True, text=True)
+                self.assertEqual(run.returncode, 0, run.stderr)
+                self.assertTrue((parent / ('scan-' + kind) / 'pe-history.svg').is_file())
 
 
 if __name__ == '__main__':

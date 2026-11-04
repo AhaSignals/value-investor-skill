@@ -8,7 +8,25 @@
 
 [Essayer la démo dans le navigateur](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=fr_demo) · [Exemple avant/après](docs/demo.md) · [Licence MIT](LICENSE)
 
-**1 skill, 5 parcours de recherche, 2 études de cas fictives, 1 illustration de démonstration et des sorties HTML, Markdown et JSON.**
+**1 skill, 8 parcours de recherche, 3 cas fictifs, 4 illustrations, 6 accès aux assistants et des guides en 7 langues. Rapports HTML, Markdown et JSON.**
+
+### Examiner les comptes, le PER historique et les cours
+
+| Analyse | Ce que vous obtenez |
+| --- | --- |
+| Comptes annuels | Croissance du chiffre d’affaires, marge, conversion du bénéfice en trésorerie, flux après investissements, dette nette et dilution |
+| PER historique | Moyenne, médiane et percentile des observations mensuelles antérieures ; comparaison suspendue en cas de pertes ou de rupture de comparabilité |
+| Contexte de marché | Données OHLC quotidiennes, moyennes sur 50/200 observations et replis ; aucune prévision de retournement |
+
+Avec l’étude de l’activité, les scénarios de valorisation, les hypothèses du cours, les contre-arguments et le suivi des preuves, cela représente huit parcours. Le fabricant fictif affiche un PER de 10 contre une médiane passée de 20. Mais son bénéfice de 15 millions s’accompagne de seulement 5 millions de flux opérationnels et de 8 millions d’investissements : un solde de moins 3 millions. La dette nette et le nombre d’actions augmentent aussi.
+
+> Étudie les rapports annuels de [société]. Les bénéfices deviennent-ils de la trésorerie ? Le faible PER reflète-t-il un changement d’activité ? Utilise les cours quotidiens comme contexte, puis donne les contre-arguments et le prochain document à vérifier. Cite les sources et les dates ; n’invente pas les données manquantes.
+
+```bash
+python3 scripts/investor.py scan-demo --out output/value-trap
+```
+
+Ouvrez `output/value-trap/scan.html` pour trois graphiques et les questions à approfondir. L’assistant peut préparer les données des rapports et des sources de cours autorisées pour `scan` ou `scan-batch`. Il ne s’agit pas d’un balayage automatique de tout le marché ni d’un lecteur universel de PDF. [Format des données](references/scan-input.md) · [Méthode et retour à la moyenne](references/scanning.md). Un PER moyen historique n’est pas une juste valeur. Le retour à la moyenne exige un mécanisme économique et des faits susceptibles d’invalider l’hypothèse. Banques, assureurs et foncières nécessitent d’autres indicateurs.
 
 ![Une action fictive à 40 dollars : un même cours, des hypothèses différentes](assets/demo.svg)
 

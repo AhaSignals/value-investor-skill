@@ -4,7 +4,7 @@ Draft copy for publication by AhaSignals. Preparing this file does not post it t
 
 ## One sentence
 
-**5 value-investing workflows in 1 AI skill: analyze businesses, test valuations, check stock-price assumptions, challenge investment theses, and track evidence changes. For Claude, ChatGPT, DeepSeek, Grok, Gemini and Kimi. Zero-install chat; 2 fictional case studies.**
+**8 value-investing workflows in 1 AI skill: scan financials, compare historical P/E, inspect price trends, test valuations and challenge your thesis. For Claude, ChatGPT, DeepSeek, Grok, Gemini and Kimi. Zero-install chat; 3 fictional cases, 4 demo charts.**
 
 ## Short demonstration
 
@@ -20,7 +20,7 @@ Repository: https://github.com/AhaSignals/value-investor-skill
 
 **这只股票，值现在这个价吗？**
 
-1 个 AI skill，5 个价值投资流程：看业务、算情景、查股价假设、找反证、复核证据变化。提供 2 个虚构案例、1 张演示图和 HTML / Markdown / JSON 输出。Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 可直接复制指令试用。
+1 个 AI skill，8 个价值投资流程：扫描财报、比较历史 PE、查看价格背景、看业务、算情景、查股价假设、找反证、复核证据变化。提供 3 个虚构案例、4 张演示图和 HTML / Markdown / JSON 输出。Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 可直接复制指令试用。
 
 一分钟离线演示：同样 40 美元的价格，换一个有利情景，价格匹配权重就从 33.3% 变成 50%。再撤回支撑该情景的资料，相关估值立即停止输出，原来的研究仍保留。
 

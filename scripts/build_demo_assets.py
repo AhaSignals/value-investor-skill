@@ -7,6 +7,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from core.research import analyze, markdown
+from core.scanner import scan, figures
 
 
 def main():
@@ -40,6 +41,9 @@ def main():
 </g></svg>'''.replace('FIRST', first).replace('SECOND', second)
     (ROOT / 'assets/demo.svg').write_text(svg, encoding='utf-8')
     (ROOT / 'docs/demo-output.md').write_text(markdown(bundle, result), encoding='utf-8')
+    screening = scan(json.loads((ROOT / 'examples/value-trap.json').read_text(encoding='utf-8')))
+    for name, content in figures(screening).items():
+        (ROOT / 'assets' / name).write_text(content, encoding='utf-8')
     print('Rebuilt illustration and transcript from fictional inputs')
 
 

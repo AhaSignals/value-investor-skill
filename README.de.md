@@ -8,7 +8,25 @@ Untersuche das Geschäft, prüfe die Bewertungsannahmen und sieh, was der Kurs v
 
 [Demo im Browser ausprobieren](https://ahasignals.com/value-investor-skill/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=de_demo) · [Vorher-nachher-Beispiel](docs/demo.md) · [MIT-Lizenz](LICENSE)
 
-**1 Skill mit 5 Rechercheabläufen, 2 fiktiven Fallstudien, 1 Demo-Abbildung und Ausgaben als HTML, Markdown und JSON.**
+**1 Skill mit 8 Rechercheabläufen, 3 fiktiven Fallstudien, 4 Demo-Abbildungen, 6 Chat-Zugängen und Anleitungen in 7 Sprachen. Berichte als HTML, Markdown und JSON.**
+
+### Geschäftsberichte, historisches KGV und Kursverlauf prüfen
+
+| Untersuchung | Ergebnis |
+| --- | --- |
+| Jahresabschlüsse | Umsatzwachstum, Marge, operativer Cashflow im Verhältnis zum Gewinn, Cashflow nach Investitionen, Nettoschulden und Aktienverwässerung |
+| Historisches KGV | Mittelwert, Median und Perzentil früherer Monatswerte; keine Vergleichszahl bei Verlusten oder nicht vergleichbaren Verhältnissen |
+| Kurskontext | Tägliche OHLC-Daten, Durchschnitte über 50/200 Beobachtungen und Kursrückgänge; keine Umkehrprognose |
+
+Zusammen mit Geschäftsanalyse, Bewertungsszenarien, Kursannahmen, Gegenbelegen und Evidenzaktualisierung sind das acht Abläufe. Beim fiktiven Hersteller beträgt das KGV 10 statt eines historischen Medians von 20. Doch 15 Millionen Gewinn stehen 5 Millionen operativem Cashflow und 8 Millionen Investitionen gegenüber: minus 3 Millionen nach Investitionen. Nettoschulden und Aktienzahl steigen ebenfalls.
+
+> Prüfe die Geschäftsberichte von [Unternehmen]. Werden Gewinne zu Cashflow? Spiegelt das niedrige KGV ein verändertes Geschäft wider? Nutze Tageskurse als Kontext. Nenne Gegenbelege, Quellen, Daten und den nächsten zu prüfenden Bericht. Fehlende Werte bleiben unbekannt.
+
+```bash
+python3 scripts/investor.py scan-demo --out output/value-trap
+```
+
+Öffne `output/value-trap/scan.html` für drei Diagramme und die nächsten Recherchefragen. Für reale Unternehmen bereitet der Assistent Daten aus Berichten und zulässigen Kursquellen für `scan` oder `scan-batch` auf. Kein automatischer Scan des gesamten Markts und kein universeller PDF-Parser. [Eingabeformat](references/scan-input.md) · [Methode und Mittelwertrückkehr](references/scanning.md). Ein historisches Durchschnitts-KGV ist kein fairer Wert. Eine Rückkehr zum Mittel braucht einen wirtschaftlichen Mechanismus und eine widerlegbare These. Banken, Versicherer und Immobilienfonds benötigen andere Kennzahlen.
 
 ![Eine fiktive Aktie zu 40 Dollar: gleicher Kurs, unterschiedliche Annahmen](assets/demo.svg)
 

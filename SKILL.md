@@ -1,6 +1,6 @@
 ---
 name: value-investor-skill
-description: Research a public company's business, event-driven valuation and price-implied assumptions; inspect counterevidence and update saved research when facts change. Use for questions such as “is this stock worth its price?”, valuation scenarios, investment-thesis reviews or dated research updates. Not a trading or portfolio-allocation skill.
+description: Research a public company's business, financial statements, historical valuation, price context and price-implied assumptions; inspect counterevidence and update saved research when facts change. Use for stock research, value-trap checks, valuation scenarios or dated research updates. Not a trading or portfolio-allocation skill.
 ---
 
 # Value Investor Skill
@@ -9,7 +9,7 @@ Help the user understand what a stock price requires, whether evidence supports 
 
 ## Start in the host you have
 
-Use natural language; no special command is required. Choose only the workflow the user needs: **Business**, **Valuation**, **Price assumptions**, **Counterevidence**, or **Update**. One skill supplies these five workflows; they are not five independent models or forecasts.
+Use natural language; no special command is required. Choose only the workflow the user needs: **Business**, **Valuation**, **Price assumptions**, **Counterevidence**, **Update**, **Financial statements**, **Valuation history**, or **Price context**. One skill supplies these eight workflows; they are not eight independent models or forecasts.
 
 Check available capabilities before promising an outcome. This applies equally to Claude, GPT, DeepSeek, Grok, Gemini and Kimi: the current app session decides the tools, not the model name. With files and Python, use the bundled tools below. With browsing but no execution, cite sources and label calculations as not engine-verified. With neither, ask for source documents and explain what remains unknown. If the user only pasted these instructions without the supporting files, follow the self-contained [portable instructions](prompts/START_HERE.md) if available; otherwise use the research principles here and say the executable tools are unavailable. Never claim an installation, model integration, live quote or persistent ledger from a prompt alone.
 
@@ -20,6 +20,10 @@ For the fictional demo, choose a fresh writable output directory outside the ins
 Identify the company/security, currency, research cutoff, event and requested horizon. Infer details already supplied; ask only when ambiguity changes the answer. For a first demonstration, run `python3 scripts/investor.py demo --out <new-output-directory>` from this skill's directory. The example is fictional; do not describe it as a real company or live run of market research.
 
 For a real company, use available browsing tools or user-supplied primary documents. Read [research protocol](references/research-protocol.md) for source selection and event-specific checks. Clinical-stage companies and simple fixed-cash mergers have specific checklists. Other businesses can use explicitly supplied scenarios, but the tools do not automatically estimate company value or calibrated probabilities.
+
+## Scan before deeper research
+
+For financial-statement, historical P/E, mean-reversion or daily-price screening, read [scanning method](references/scanning.md) and [scan input contract](references/scan-input.md). Use browsing or supplied filings to assemble inputs for the user; do not ask a beginner to author JSON. Run `python3 scripts/investor.py scan-demo --out <new-directory>` for a fictional low-P/E company with weak cash flow, or `scan` / `scan-batch` on reviewed inputs. Inspect exclusions and dated sources, explain each flag, and investigate its alternative explanations before building valuation scenarios. Historical averages and price drawdowns do not establish intrinsic value or a reversion forecast. With no execution, follow the same questions and label arithmetic as not engine-verified.
 
 ## Research workflow
 
@@ -35,7 +39,7 @@ For a real company, use available browsing tools or user-supplied primary docume
 
 All paths below are relative to this installed skill directory. Use an absolute script path when the user's working directory differs.
 
-- `scripts/investor.py`: demo, analyze, freeze, revise, update-evidence, history, show, compare, verify.
+- `scripts/investor.py`: demo, scan-demo, scan, scan-batch, analyze, freeze, revise, update-evidence, history, show, compare, verify.
 - `scripts/fetch_sec.py`: optional recent SEC filing-reference discovery by CIK and acceptance-time cutoff. Requires a user-provided `SEC_USER_AGENT` organization/contact identifier. It does not fetch every historical segment or validate a valuation. Never expose the identifier in reports.
 - The core runs offline on Python 3.9+ with no third-party packages. The AI host supplies reasoning and optional browsing; its costs and data permissions still apply.
 - Historical cutoffs constrain supplied evidence, not the model's pretraining knowledge. For outcome-sensitive validation use prospectively registered cases or independently controlled evidence; do not claim the tool proves absence of model leakage.

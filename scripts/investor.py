@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT))
 from core import __version__
 from core.research import ResearchError, analyze, digest, html_report, markdown
 from core.ledger import connect, diff, freeze, records, revise, unpack, update_evidence, verify
+from core.scanner import scan, save as save_scan
 
 
 def read(path):
@@ -60,6 +61,14 @@ def main(argv=None):
     sub = p.add_subparsers(dest="command", required=True)
     d = sub.add_parser("demo", help="Run a complete fictional before/after study")
     d.add_argument("--out", default="output/demo")
+    s = sub.add_parser("scan", help="Screen supplied annual financials, monthly P/E and daily OHLC data")
+    s.add_argument("bundle")
+    s.add_argument("--out", help="New or empty output directory for HTML, Markdown, JSON and SVG")
+    s = sub.add_parser("scan-demo", help="Run the fictional low-P/E, weak-cash-flow case")
+    s.add_argument("--out", required=True)
+    s = sub.add_parser("scan-batch", help="Screen a supplied list of company bundles without investment rankings")
+    s.add_argument("bundle", help="JSON list of scan bundles")
+    s.add_argument("--out", required=True)
     for name in ("analyze", "freeze", "revise"):
         s = sub.add_parser(name)
         s.add_argument("bundle")
@@ -87,7 +96,30 @@ def main(argv=None):
     s.add_argument("after")
     a = p.parse_args(argv)
     try:
-        if a.command == "demo":
+        if a.command in ("scan", "scan-demo"):
+            bundle = read(ROOT / "examples" / "value-trap.json" if a.command == "scan-demo" else a.bundle)
+            result = scan(bundle)
+            if a.out:
+                save_scan(a.out, bundle, result)
+            emit({k: v for k, v in result.items() if k != "sources"})
+        elif a.command == "scan-batch":
+            bundles = read(a.bundle)
+            if not isinstance(bundles, list) or not bundles:
+                raise ResearchError("Batch input must be a nonempty list of scan bundles")
+            # Validate and calculate all companies before writing any report.
+            results = [scan(b) for b in bundles]
+            out = Path(a.out)
+            if out.exists() and any(out.iterdir()):
+                raise ResearchError("Batch output must be a new or empty directory")
+            out.mkdir(parents=True, exist_ok=True)
+            summary = []
+            for i, (bundle, result) in enumerate(zip(bundles, results), 1):
+                folder = "company-%03d" % i
+                save_scan(out / folder, bundle, result)
+                summary.append({"company": result["company"], "report": folder + "/scan.html", "findings": [f["code"] for f in result["findings"]]})
+            (out / "index.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
+            emit(summary)
+        elif a.command == "demo":
             demo(a.out)
         elif a.command == "analyze":
             bundle = read(a.bundle)

@@ -1,5 +1,19 @@
 # Run the demo
 
+## Low P/E, weak cash generation
+
+```bash
+python3 scripts/investor.py scan-demo --out output/value-trap
+```
+
+Open `output/value-trap/scan.html`. The third fictional case is a nonfinancial manufacturer: P/E 10 versus a prior-month median of 20, net income 15 million, operating cash flow 5 million and capex 8 million. Cash after capex is negative 3 million; net debt is 35 million. The screen flags cash conversion, rising net debt and diluted shares before asking whether the multiple discount is justified.
+
+The report includes cash-versus-profit, P/E-history and price-context SVG charts. Change `comparable_regime` to false and run `scan` into a fresh directory: the historical P/E baseline and chart are withheld. Change current EPS to zero: current P/E is withheld too. Withdraw a financial source: its row is excluded, earlier data stays dated, and the exclusion is reported. These checks are not estimates of investment returns.
+
+[Inspect the fictional inputs](../examples/value-trap.json) · [Method](../references/scanning.md) · [Input contract](../references/scan-input.md)
+
+## Scenario and evidence-withdrawal cases
+
 This is a real execution of fictional inputs, not a real-company forecast.
 
 ```bash
