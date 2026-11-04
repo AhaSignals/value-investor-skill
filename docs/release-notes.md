@@ -1,29 +1,22 @@
-# Value Investor Skill v0.4.0
+# Value Investor Skill v0.5.0
 
-**8 research workflows in 1 AI skill.** Scan financial statements, compare historical P/E and inspect daily price context alongside business research, valuation scenarios, price assumptions, counterevidence and evidence updates.
-
-## Try the low-P/E case
+**Enter Microsoft or MSFT. Retrieve public filings and historical prices, scan the evidence, then ask your assistant what the numbers mean.**
 
 ```bash
-python3 scripts/investor.py scan-demo --out output/value-trap
+python3 scripts/investor.py research Microsoft --out output/msft
+python3 scripts/investor.py replay output/msft --out output/msft-replay
 ```
 
-Open `output/value-trap/scan.html`. A fictional manufacturer has P/E 10 versus a historical median of 20, but profit of 15 million produces only 5 million operating cash flow and needs 8 million capex. The report asks whether cash conversion, net debt and dilution explain the discount. Three charts accompany dated calculations and research questions.
+Open `output/msft/research.html`. Python 3.9+, no pip packages or API key. The installed skill runs this workflow in hosts with network, Python and writable files; ordinary chat depends on its own browsing tools.
 
-## What is included
+- SEC company resolution, annual statements and the latest 10-K; public daily OHLC and completed-month P/E context.
+- Cash conversion, CFO minus cash capex, debt/dilution gaps, dated EPS, split alignment and counterquestions. The AI assistant supplies deep business interpretation.
+- Private source capture with checksums and offline replay. Provider blocks stop without bypass; useful financial reports survive price/document failures.
+- A [real Microsoft case](https://github.com/AhaSignals/value-investor-skill/blob/v0.5.0/docs/msft-research.md): FY2026 profit grew, but CFO minus cash capex fell from USD 71.611bn to 66.987bn. The frozen SEC financial extract reproduces offline; raw price history and filing text are not redistributed.
+- Seven language guides, six assistant entry points, one installable skill and eight research workflows.
 
-- `scan` for one supplied company bundle; `scan-batch` for a supplied watchlist, without investment scores or rankings.
-- Annual cash-flow, margin, debt and dilution checks; monthly trailing-P/E history; daily OHLC validation, 50/200-observation averages and drawdowns.
-- Explicit source cutoffs, historical EPS availability, loss denominators, noncomparable regimes, missing/stale data and evidence withdrawals.
-- Three fictional cases and four unique demo illustrations in the repository. Seven language guides now cover the new screens, examples and boundaries.
-- English/Chinese portable instructions for Claude, ChatGPT, DeepSeek, Grok, Gemini and Kimi. Files and Python are required to run the local engine; chat alone does not install it.
+Supported automatic scope: US-GAAP USD nonfinancial 10-K companies. Missing fields stay unknown; banks, insurers, REITs and foreign 20-F issuers require other methods. Historical P/E is descriptive, not fair value or a rebound forecast. No trading execution or return claim.
 
-[Method and mean-reversion limits](https://github.com/AhaSignals/value-investor-skill/blob/v0.4.0/references/scanning.md) · [Input format](https://github.com/AhaSignals/value-investor-skill/blob/v0.4.0/references/scan-input.md) · [Zero-install starting point](https://ahasignals.com/value-investor-skill/)
+Downloads: `value-investor-skill-upload-v0.5.0.zip` for skill upload; `value-investor-skill-v0.5.0.zip` for full source and tests; `SHA256SUMS` verifies both. Scanner output 1.1.0; scenario output remains 0.1.0.
 
-## Downloads
-
-- `value-investor-skill-upload-v0.4.0.zip`: self-contained skill instructions, references, examples and runtime tools.
-- `value-investor-skill-v0.4.0.zip`: source, installer, tests, seven guides and illustrations.
-- `SHA256SUMS`: checksums for both archives.
-
-Python 3.9+, standard library only. Scanner output version is 1.0.0; existing scenario output remains 0.1.0, preserving prior ledger reproduction. Real data acquisition and normalization are host-assisted. No whole-market downloader, arbitrary PDF parser, reversion probability, return forecast or trading execution is supplied. Historical P/E and moving averages are research context, not intrinsic value or investment advice.
+[Source definitions and replay](https://github.com/AhaSignals/value-investor-skill/blob/v0.5.0/references/us-research.md) · [Start in your assistant](https://ahasignals.com/value-investor-skill/)

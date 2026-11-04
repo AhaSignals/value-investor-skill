@@ -39,7 +39,7 @@ For updates, use `/plugin` to update the installed plugin. A plugin installation
 
 ## Claude web / desktop: upload
 
-Download `value-investor-skill-upload-v0.4.0.zip` from [the release](https://github.com/AhaSignals/value-investor-skill/releases/tag/v0.4.0). Keep the ZIP intact. In Claude, use **Customize → Skills → Create skill → Upload a skill**, then enable it. Code execution must be available for the Python workflow. Ask for the fictional demo and save its generated files if you need them later. Cloud sessions do not automatically retain a local ledger across chats. [Claude's current instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+Download `value-investor-skill-upload-v0.5.0.zip` from [the release](https://github.com/AhaSignals/value-investor-skill/releases/tag/v0.5.0). Keep the ZIP intact. In Claude, use **Customize → Skills → Create skill → Upload a skill**, then enable it. Code execution must be available for the Python workflow. Ask for the fictional demo and save its generated files if you need them later. Cloud sessions do not automatically retain a local ledger across chats. [Claude's current instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
 
 ## GPT / Codex: local skill
 
@@ -112,3 +112,8 @@ Open `output/first-demo/before/research.html` and `output/first-demo/after/resea
 Checked against the official documentation on **2026-11-04**. Automated tests cover source/upload ZIP extraction, copied installation, current host paths, preserved existing files and local demo execution. Claude Code CLI 2.1.317 validated both manifests and installed the plugin into an isolated test configuration; its component inventory found the skill, and the installed copy passed the offline demo. These checks establish packaging and local execution, not successful account-specific upload or model reasoning quality. The release does not include a paid provider benchmark. See the [dated compatibility record and acceptance prompts](compatibility.md). [Report a reproducible problem](https://github.com/AhaSignals/value-investor-skill/issues/new?template=experience.yml).
 
 AhaSignals is independent. Product names indicate compatibility and source context, without affiliation or endorsement. Research and education only.
+
+
+## Research by company name
+
+With the complete skill, Python, network and writable files, ask “Research MSFT.” The skill runs `research`, reads the generated brief and follows filing evidence. No JSON intake or API key. Network access may be unavailable in some hosted sandboxes; use permitted browsing or the frozen Microsoft financial example instead. [Source scope, failure behavior and replay](../references/us-research.md).

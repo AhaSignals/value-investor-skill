@@ -2,6 +2,22 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## 只输入美股名称或代码
+
+> **研究 MSFT。自动获取公开财报和历史行情，解释利润与现金流的差异，并找出最强反证。**
+
+在已安装完整技能、具备 Python 和联网能力的宿主中，助手会自动运行数据流程。不需要填写 JSON 或申请 API key。普通聊天窗口依赖自身的浏览能力；粘贴提示词不会安装下载器。
+
+```bash
+# 在已克隆或解压的项目目录中运行：
+python3 scripts/investor.py research Microsoft --out output/msft
+```
+
+打开 `output/msft/research.html`，查看财报扫描、历史 PE 和价格背景；助手继续阅读报告与财报，完成业务分析、反证和待核实问题。**优先支持美股非金融经营企业**，缺失字段保留未知。[数据范围与断网重放](references/us-research.md)。
+
+**真实案例：[微软利润增长，为什么扣除资本开支后的现金减少？](docs/msft-research.md)** 公开的五年 SEC 财务摘录可离线复算；另一次完整联网演示获取了 1,260 根日线和 61 个 PE 月度样本，实际覆盖因公司及来源而异。[查看官网案例](https://ahasignals.com/value-investor-skill/msft/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=zh_msft_case)。
+
+
 ## 这只股票，值现在这个价吗？
 
 **1 个 AI skill，8 个价值投资研究流程：扫描财报、比较历史 PE、查看价格趋势、看懂业务、计算估值情景、检查股价假设、寻找反证、追踪证据变化。**
@@ -19,7 +35,7 @@
 | 你使用的产品 | 最快入口 |
 | --- | --- |
 | **Claude、ChatGPT、DeepSeek、Grok、Gemini、Kimi 聊天** | 把[这份完整中文指令](prompts/START_HERE.zh-CN.md)复制到新对话，再输入公司名称。无需终端。 |
-| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.4.0/value-investor-skill-upload-v0.4.0.zip)，在 Customize → Skills 中启用。 |
+| **已启用 Skills 的 Claude** | 上传[技能 ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.5.0/value-investor-skill-upload-v0.5.0.zip)，在 Customize → Skills 中启用。 |
 | **Claude Code** | 输入下方两条插件命令。 |
 | **Gemini CLI 或 Kimi Code** | 用 `--host gemini` 或 `--host kimi` 安装同一个技能。[步骤](docs/hosts.md#gemini-cli-and-kimi-code)。 |
 | **使用 GPT 的 Codex** | 请它把本仓库安装为 skill；或使用下方 Python 安装器。 |
@@ -121,7 +137,7 @@ python3 scripts/investor.py scan company.json --out output/company
 python3 scripts/investor.py scan-batch watchlist.json --out output/watchlist
 ```
 
-CLI 扫描的是**已提供并整理好的数据**，不自动抓取全市场或解析任意 PDF。普通聊天可以使用同样的问题，执行报告需要 Python 与文件权限。[数据格式](references/scan-input.md) · [扫描方法与均值回归边界](references/scanning.md)。
+`research` 会自动获取支持范围内的美股资料；`scan` / `scan-batch` 也接受整理好的数据。不自动抓取全市场或解析任意 PDF。普通聊天可以使用同样的问题，执行报告需要 Python 与文件权限。[数据格式](references/scan-input.md) · [扫描方法与均值回归边界](references/scanning.md)。
 
 历史 PE 是比较基准，不是合理价值；均线是价格背景，不预测反转。均值回归需要经营机制、可比环境和可推翻它的证据。银行、保险与房地产信托需要不同的财务分析口径。
 

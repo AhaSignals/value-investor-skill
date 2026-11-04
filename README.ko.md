@@ -2,6 +2,19 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## 미국 주식 이름이나 티커만 입력하세요
+
+전체 스킬과 Python, 인터넷을 사용할 수 있는 환경에서는 SEC 재무자료와 공개 과거 주가를 자동으로 가져옵니다. JSON 작성이나 API 키가 필요 없습니다. 일반 채팅은 앱의 검색 기능에 따라 달라집니다.
+
+```bash
+python3 scripts/investor.py research Microsoft --out output/msft
+```
+
+`output/msft/research.html` · [Microsoft](docs/msft-research.md) · [Sources / replay](references/us-research.md)
+
+미국 비금융 사업회사를 우선 지원하며 누락값은 알 수 없음으로 남깁니다. 실제 Microsoft의 고정 재무 데이터로 오프라인 재현도 가능합니다.
+
+
 ## 이 주식은 지금 가격만큼의 가치가 있을까요?
 
 기업의 사업을 살펴보고, 가치평가의 가정을 점검하고, 현재 주가가 성립하려면 무엇이 필요한지 확인하세요. **[AhaSignals](https://ahasignals.com/methodology/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=ko_methodology)** 가 공개한 AI 어시스턴트용 투자 리서치 스킬입니다.

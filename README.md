@@ -2,13 +2,29 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## Just enter a US stock name or ticker
+
+> **Research MSFT. Fetch public filings and historical prices, explain profits versus cash, and show the strongest counterevidence.**
+
+With the full skill installed in a host with Python and network access, this starts the source workflow automatically. No JSON intake or API key. In an ordinary chat, source access depends on the app; pasted instructions do not install the downloader.
+
+```bash
+# From the cloned or extracted project directory:
+python3 scripts/investor.py research Microsoft --out output/msft
+```
+
+Open `output/msft/research.html`. The report links financial statements, descriptive historical P/E and daily price context; your assistant reads it and the filings for deep business research. **US nonfinancial companies first.** Missing values remain unknown. [Coverage and replay](references/us-research.md).
+
+**Try a real case:** [Microsoft: profit rose, cash after capex fell](docs/msft-research.md). A frozen five-year SEC extract reproduces the financial screen offline. A separate live run captured 1,260 daily bars and 61 monthly P/E samples; availability varies. [Inspect the public report](https://ahasignals.com/value-investor-skill/msft/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=msft_case).
+
+
 ## Is this stock worth its price?
 
 **8 value-investing workflows in 1 AI skill: scan financial statements, compare historical P/E, inspect price trends, understand the business, test valuations, check price assumptions, challenge your thesis, and track evidence changes.**
 
 For Claude, ChatGPT (GPT), DeepSeek, Grok, Gemini and Kimi. Start with a company name or a question. Copy the instructions into chat with no installation, or install the full skill for local Python calculations and saved research.
 
-**6 chat assistants · 7 language guides · 3 fictional case studies · 4 demo illustrations · HTML, Markdown and JSON reports.**
+**1 real SEC financial case · 6 chat assistants · 7 language guides · 3 fictional case studies · 4 demo illustrations · HTML, Markdown and JSON reports.**
 
 **Free, MIT, no project signup.** Your AI service's account, tool access and fees still apply.
 
@@ -19,7 +35,7 @@ For Claude, ChatGPT (GPT), DeepSeek, Grok, Gemini and Kimi. Start with a company
 | You use | Start here |
 | --- | --- |
 | **Claude, ChatGPT, DeepSeek, Grok, Gemini or Kimi chat** | Copy [these ready-to-paste instructions](prompts/START_HERE.md), then ask about a company. No terminal needed. |
-| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.4.0/value-investor-skill-upload-v0.4.0.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
+| **Claude with Skills enabled** | Upload the [skill ZIP](https://github.com/AhaSignals/value-investor-skill/releases/download/v0.5.0/value-investor-skill-upload-v0.5.0.zip). [Steps](docs/hosts.md#claude-web--desktop-upload). |
 | **Claude Code** | Run the two plugin commands below. |
 | **Gemini CLI or Kimi Code** | Install the same skill with `--host gemini` or `--host kimi`. [Steps](docs/hosts.md#gemini-cli-and-kimi-code). |
 | **GPT in Codex** | Ask it to install this repository as a skill. [Steps](docs/hosts.md#gpt--codex-local-skill). |
@@ -121,7 +137,7 @@ python3 scripts/investor.py scan company.json --out output/company
 python3 scripts/investor.py scan-batch watchlist.json --out output/watchlist
 ```
 
-The CLI screens **supplied normalized data**; it does not fetch the whole market or automatically parse arbitrary PDFs. Chat uses the same questions; executable reports require Python and files. [Input format](references/scan-input.md) · [Method and mean-reversion limits](references/scanning.md).
+The `research` command retrieves supported US-company data automatically; `scan` and `scan-batch` accept reviewed normalized data. It does not fetch the whole market or automatically parse arbitrary PDFs. Chat uses the same questions; executable reports require Python and files. [Input format](references/scan-input.md) · [Method and mean-reversion limits](references/scanning.md).
 
 Historical P/E is a comparison, not fair value. Moving averages are price context, not reversal forecasts. A mean-reversion thesis needs a business mechanism, a comparable regime and evidence that could prove it wrong. Banks, insurers and property trusts require different accounting screens.
 
@@ -172,7 +188,7 @@ An optional [SEC helper](scripts/fetch_sec.py) discovers recent filing reference
 
 ## Scope and limits
 
-**Available:** installable skill; deterministic equity-to-per-share scenarios; conditional two-state inversion; source-date/dependency checks; append-only local snapshots; revision comparison; offline HTML/Markdown/JSON reports; fictional clinical and merger demos; optional SEC filing-index discovery.
+**Available:** one-name US source capture and offline replay; real Microsoft financial example; installable skill; deterministic equity-to-per-share scenarios; conditional two-state inversion; source-date/dependency checks; append-only local snapshots; revision comparison; offline HTML/Markdown/JSON reports; fictional clinical and merger demos; optional SEC filing-index discovery.
 
 **Not claimed:** a calibrated clinical model, automated whole-market research, a complete DCF engine, a statistical value distribution from uncalibrated scenarios, portfolio advice, continuous alerts, brokerage execution, or validated alpha. Clinical and cash-merger research have specific checklists; other companies require a suitable user-supplied model.
 

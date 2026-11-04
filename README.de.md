@@ -2,6 +2,19 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## Ein US-Aktienname oder Ticker genügt
+
+Mit installiertem Skill, Python und Internetzugang werden öffentliche SEC-Finanzdaten und historische Kurse automatisch abgerufen. Kein JSON-Formular und kein API-Schlüssel nötig. Im normalen Chat hängt der Quellenzugriff von der App ab.
+
+```bash
+python3 scripts/investor.py research Microsoft --out output/msft
+```
+
+`output/msft/research.html` · [Microsoft](docs/msft-research.md) · [Sources / replay](references/us-research.md)
+
+Zunächst für nichtfinanzielle US-Unternehmen. Fehlende Werte bleiben unbekannt. Das reale Microsoft-Beispiel enthält einen eingefrorenen Finanzauszug zur Offline-Reproduktion.
+
+
 ## Ist diese Aktie ihren aktuellen Kurs wert?
 
 Untersuche das Geschäft, prüfe die Bewertungsannahmen und sieh, was der Kurs voraussetzt. Ein Recherche-Skill für deinen KI-Assistenten, veröffentlicht von **[AhaSignals](https://ahasignals.com/methodology/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=de_methodology)**.

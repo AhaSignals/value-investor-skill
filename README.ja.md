@@ -2,6 +2,19 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## 米国株の会社名かティッカーだけで開始
+
+完全版スキルと Python・ネット接続がある環境では、SEC 財務データと公開の過去株価を自動取得します。JSON の準備や API キーは不要です。通常のチャットではアプリの閲覧機能に依存します。
+
+```bash
+python3 scripts/investor.py research Microsoft --out output/msft
+```
+
+`output/msft/research.html` · [Microsoft](docs/msft-research.md) · [Sources / replay](references/us-research.md)
+
+まず米国の非金融事業会社に対応。欠損値は不明のまま扱います。実在の Microsoft の固定財務データでオフライン再計算も可能です。
+
+
 ## この株は、今の価格に見合うのか？
 
 企業の事業を調べ、評価の前提を確かめ、株価を正当化するには何が必要かを考える。**[AhaSignals](https://ahasignals.com/methodology/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=ja_methodology)** が公開する、AI アシスタント向けの投資リサーチ用スキルです。

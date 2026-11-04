@@ -59,6 +59,12 @@ def main(argv=None):
     p = argparse.ArgumentParser(description="Research a stock's assumptions. No brokerage or model API calls.")
     p.add_argument("--version", action="version", version=__version__)
     sub = p.add_subparsers(dest="command", required=True)
+    s = sub.add_parser('research', help='Enter a US ticker or company name; fetch public filings/prices and build dated research')
+    s.add_argument('company', help='US ticker or quoted English company name')
+    s.add_argument('--out', help='New output folder; default is a timestamped folder under output/')
+    s = sub.add_parser('replay', help='Rebuild research offline from a saved research folder and verified source hashes')
+    s.add_argument('capture')
+    s.add_argument('--out', required=True)
     d = sub.add_parser("demo", help="Run a complete fictional before/after study")
     d.add_argument("--out", default="output/demo")
     s = sub.add_parser("scan", help="Screen supplied annual financials, monthly P/E and daily OHLC data")
@@ -96,7 +102,15 @@ def main(argv=None):
     s.add_argument("after")
     a = p.parse_args(argv)
     try:
-        if a.command in ("scan", "scan-demo"):
+        if a.command in ('research', 'replay'):
+            from core.us_research import collect, replay
+            from datetime import datetime, timezone
+            if a.command == 'research':
+                out = a.out or ('output/research-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'))
+                emit(collect(a.company,out))
+            else:
+                emit(replay(a.capture,a.out))
+        elif a.command in ("scan", "scan-demo"):
             bundle = read(ROOT / "examples" / "value-trap.json" if a.command == "scan-demo" else a.bundle)
             result = scan(bundle)
             if a.out:

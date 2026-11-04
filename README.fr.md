@@ -2,6 +2,19 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## Un nom de société américaine ou un symbole suffit
+
+Avec le skill complet, Python et un accès Internet, les données financières publiques de la SEC et les cours historiques sont récupérés automatiquement. Aucun formulaire JSON ni clé API. Dans un chat ordinaire, l’accès aux sources dépend de l’application.
+
+```bash
+python3 scripts/investor.py research Microsoft --out output/msft
+```
+
+`output/msft/research.html` · [Microsoft](docs/msft-research.md) · [Sources / replay](references/us-research.md)
+
+Priorité aux entreprises américaines non financières. Les valeurs manquantes restent inconnues. Le cas réel Microsoft inclut un extrait financier figé pour reproduire les calculs hors ligne.
+
+
 ## Cette action vaut-elle son prix actuel ?
 
 Étudiez l’activité, vérifiez les hypothèses de valorisation et voyez ce que le cours suppose. Un skill de recherche pour votre assistant IA, publié par **[AhaSignals](https://ahasignals.com/methodology/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=fr_methodology)**.

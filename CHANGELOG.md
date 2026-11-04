@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0 — 2026-11-04
+
+- Research a supported US company from its name/ticker: SEC filings and financial facts, public historical daily prices, dated screens and a research brief.
+- Save bounded local source captures and replay with hashes without network access; preserve partial reports and explicit missing data.
+- Add a real Microsoft financial fixture, reproducible expected hashes and a sourced cash-investment case.
+- Nullable financial fields, descriptive noncomparable P/E statistics, historical EPS publication gates and split alignment; scanner output 1.1.0. Scenario output remains 0.1.0.
+- Update seven language guides and host instructions. No new runtime dependencies, model API calls or brokerage execution.
+
+
 ## 0.4.0 — 2026-11-04
 
 - Add three research screens to the existing skill: annual financial statements, historical trailing P/E and daily price context (eight workflows total).

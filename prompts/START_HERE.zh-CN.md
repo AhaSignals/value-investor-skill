@@ -31,3 +31,6 @@
 先说研究发现或缺失的关键资料，再根据我的问题展示业务、情景假设、最强反证、改变判断的条件和带日期的来源。首答保持易读，需要时再展开。
 
 可执行项目：https://github.com/AhaSignals/value-investor-skill 。免安装演示：https://ahasignals.com/value-investor-skill/ 。AhaSignals 独立发布，产品名仅说明兼容关系，不代表隶属或背书。仅供研究与教育。
+
+
+只输入公司名称或代码即可开始。若已提供完整项目文件、Python、联网和可写目录，运行 `python3 scripts/investor.py research MSFT --out <新目录>`，读取 research.md 与相关财报后完成分析，不要求用户编写 JSON 或申请 API key。只有浏览能力时，使用可获取的公开资料，并明确计算未经引擎验证；遇到访问限制不绕过。自动入口优先支持美股非金融经营企业。

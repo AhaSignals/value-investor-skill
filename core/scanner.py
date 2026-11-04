@@ -65,9 +65,15 @@ def validate(bundle):
                 if not 350 <= (d - start).days <= 380:
                     raise ResearchError("Fiscal year length must be 350–380 days")
                 for key in ("revenue", "capex", "cash", "debt", "diluted_shares"):
-                    number(row.get(key), key, minimum=0, positive=key == "diluted_shares")
+                    if key not in row:
+                        raise ResearchError("Missing financial field; use explicit null for unknown")
+                    if row[key] is not None:
+                        number(row[key], key, minimum=0, positive=key == "diluted_shares")
                 for key in ("net_income", "operating_cash_flow"):
-                    number(row.get(key), key)
+                    if key not in row:
+                        raise ResearchError("Missing financial field; use explicit null for unknown")
+                    if row[key] is not None:
+                        number(row[key], key)
             elif group == "valuations":
                 number(row.get("close"), "close", positive=True)
                 number(row.get("eps_ttm"), "eps_ttm")
@@ -98,7 +104,11 @@ def validate(bundle):
 
 
 def ratio(a, b):
-    return a / b if b > 0 else None
+    return a / b if a is not None and b is not None and b > 0 else None
+
+
+def difference(a, b):
+    return a - b if a is not None and b is not None else None
 
 
 def scan(bundle):
@@ -123,7 +133,7 @@ def scan(bundle):
             else:
                 selected[group].append(row)
     financials, valuations, bars = (selected[k] for k in ("financials", "valuations", "bars"))
-    result = {"scan_version": "1.0.0", "company": bundle["company"], "currency": bundle["currency"],
+    result = {"scan_version": "1.1.0", "company": bundle["company"], "currency": bundle["currency"],
               "cutoff": bundle["cutoff"], "fictional": bundle["fictional"], "input_sha256": digest(bundle),
               "status": "DESCRIPTIVE_ONLY", "excluded": excluded, "findings": findings,
               "comparability_notes": bundle["comparability_notes"], "sources": selected}
@@ -131,16 +141,19 @@ def scan(bundle):
     if financials:
         cur = financials[-1]
         f = {"status": "AVAILABLE", "period_end": cur["date"], "periods": len(financials),
-             "free_cash_flow": cur["operating_cash_flow"] - cur["capex"],
+             "free_cash_flow": difference(cur["operating_cash_flow"], cur["capex"]),
              "cash_conversion": ratio(cur["operating_cash_flow"], cur["net_income"]),
-             "net_margin": ratio(cur["net_income"], cur["revenue"]), "net_debt": cur["debt"] - cur["cash"],
+             "net_margin": ratio(cur["net_income"], cur["revenue"]), "net_debt": difference(cur["debt"], cur["cash"]),
              "revenue_growth": None, "share_growth": None}
+        if any(cur[k] is None for k in ('net_income','operating_cash_flow','capex','revenue','cash','debt','diluted_shares')):
+            f['status'] = 'PARTIAL'
+            flag('MISSING_FINANCIAL_FIELDS', 'Some financial fields are unknown; dependent metrics are withheld.', 'Inspect field_sources and missing_fields; missing debt or capex must not be treated as zero.')
         if (cutoff.date() - day(cur["date"])).days > 550:
             f["status"] = "STALE"
             flag("STALE_FINANCIALS", "Last admissible fiscal year ended over 550 days before cutoff.", "Obtain the next filed annual report; do not treat this screen as current.")
-        if cur["net_income"] > 0 and f["free_cash_flow"] < 0:
+        if cur["net_income"] is not None and cur["net_income"] > 0 and f["free_cash_flow"] is not None and f["free_cash_flow"] < 0:
             flag("PROFIT_WITHOUT_FREE_CASH", "Positive net income, negative CFO minus capex.", "Is working capital or growth capex temporary, or are reported profits failing to produce cash?")
-        if cur["net_income"] > 0 and cur["operating_cash_flow"] < cur["net_income"]:
+        if cur["net_income"] is not None and cur["net_income"] > 0 and cur["operating_cash_flow"] is not None and cur["operating_cash_flow"] < cur["net_income"]:
             flag("CASH_BELOW_PROFIT", "Operating cash flow is below net income.", "Reconcile receivables, inventories, noncash items and seasonality in the cash-flow notes.")
         if len(financials) >= 2:
             prev = financials[-2]
@@ -148,10 +161,12 @@ def scan(bundle):
             if comparable_years:
                 growth = ratio(cur["revenue"], prev["revenue"])
                 f["revenue_growth"] = growth - 1 if growth is not None else None
-                f["share_growth"] = cur["diluted_shares"] / prev["diluted_shares"] - 1
-                if f["share_growth"] > 0:
+                shares = ratio(cur["diluted_shares"], prev["diluted_shares"])
+                f["share_growth"] = shares - 1 if shares is not None else None
+                if f["share_growth"] is not None and f["share_growth"] > 0:
                     flag("DILUTION", "Diluted weighted-average shares increased year over year.", "How much is stock compensation, new issuance or acquisition consideration; was per-share value created?")
-                if cur["debt"] - cur["cash"] > prev["debt"] - prev["cash"]:
+                prior_debt = difference(prev['debt'],prev['cash'])
+                if f['net_debt'] is not None and prior_debt is not None and f['net_debt'] > prior_debt:
                     flag("NET_DEBT_INCREASED", "Net debt increased year over year.", "Check maturities, covenants, refinancing costs and the use of proceeds.")
             else:
                 flag("NONCOMPARABLE_YEARS", "Latest annual periods are not adjacent or use different accounting bases.", "Reconcile periods and accounting policies before measuring growth.")
@@ -172,7 +187,8 @@ def scan(bundle):
             flag("NONPOSITIVE_EPS", "Current trailing earnings are zero or negative; P/E is withheld.", "Examine cash runway, assets and supported operating scenarios instead of a negative P/E ranking.")
         else:
             v["current_pe"] = cur["close"] / cur["eps_ttm"]
-            if len(valid) >= 12 and len(valid) == len(history) and contiguous and bundle["comparable_regime"] and len({r["basis"] for r in history + [cur]}) == 1:
+            descriptive_only = bundle.get('descriptive_history') is True and not bundle['comparable_regime']
+            if len(valid) >= 12 and len(valid) == len(history) and contiguous and (bundle["comparable_regime"] or descriptive_only) and len({r["basis"] for r in history + [cur]}) == 1:
                 current = v["current_pe"]
                 med = median(valid)
                 v.update({"status": "DESCRIPTIVE_HISTORY", "historical_mean": mean(valid), "historical_median": med,
@@ -181,6 +197,9 @@ def scan(bundle):
                           "window_start": history[0]["date"], "window_end": history[-1]["date"]})
                 if current < med:
                     flag("PE_BELOW_HISTORY", "P/E is below the supplied prior-month median.", "Did sustainable earnings, growth, rates, risk or capital allocation change enough to justify a lower multiple?")
+                if descriptive_only:
+                    v['status'] = 'DESCRIPTIVE_NONCOMPARABLE'
+                    flag('REGIME_NOT_REVIEWED', 'Historical P/E statistics are displayed, but economic comparability has not been established.', 'Review growth, business mix, accounting and risk before using history as a valuation baseline.')
             else:
                 flag("PE_BASELINE_WITHHELD", "Historical comparison needs 12+ consecutive prior monthly observations, positive EPS throughout and a declared comparable basis/regime.", "Resolve loss years, missing months, split adjustments, reporting definitions and business changes before invoking mean reversion.")
         if (cutoff.date() - day(cur["date"])).days > 45:
@@ -257,8 +276,8 @@ def figures(result):
     out = {}
     if len({r["basis"] for r in f}) <= 1:
         out["cash-vs-profit.svg"] = chart(prefix + "Annual cash and profit · " + result["currency"] + " · " + span(f), [
-            ("Net income", [r["net_income"] for r in f]), ("CFO minus capex", [r["operating_cash_flow"] - r["capex"] for r in f])])
-    if result["valuation"]["status"] == "DESCRIPTIVE_HISTORY":
+            ("Net income", [r["net_income"] for r in f]), ("CFO minus capex", [difference(r["operating_cash_flow"], r["capex"]) for r in f])])
+    if result["valuation"]["status"] in ("DESCRIPTIVE_HISTORY", "DESCRIPTIVE_NONCOMPARABLE"):
         out["pe-history.svg"] = chart(prefix + "Monthly trailing P/E (x) · " + span(v), [("P/E", [r["close"]/r["eps_ttm"] if r["eps_ttm"] > 0 else None for r in v]), ("Prior-month median", [result["valuation"]["historical_median"]]*len(v))])
     if result["price_context"]["status"] == "DESCRIPTIVE_HISTORY":
         cs = [r["close"] for r in bars]

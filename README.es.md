@@ -2,6 +2,19 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+## Basta con el nombre o símbolo de una acción de EE. UU.
+
+Con el skill completo, Python y conexión a Internet, se obtienen automáticamente datos financieros públicos de la SEC y precios históricos. Sin preparar JSON ni solicitar una clave API. En un chat normal, el acceso a fuentes depende de la aplicación.
+
+```bash
+python3 scripts/investor.py research Microsoft --out output/msft
+```
+
+`output/msft/research.html` · [Microsoft](docs/msft-research.md) · [Sources / replay](references/us-research.md)
+
+Primero se admiten empresas estadounidenses no financieras. Los datos ausentes siguen siendo desconocidos. El caso real de Microsoft incluye un extracto financiero congelado para reproducir los cálculos sin conexión.
+
+
 ## ¿Vale esta acción lo que cuesta hoy?
 
 Investiga el negocio, comprueba las hipótesis de valoración y descubre qué tendría que ocurrir para justificar el precio. Un skill de investigación para tu asistente de IA, publicado por **[AhaSignals](https://ahasignals.com/methodology/?utm_source=github&utm_medium=readme&utm_campaign=value_investor_launch_2026_11&utm_content=es_methodology)**.

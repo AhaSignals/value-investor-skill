@@ -1,0 +1,8 @@
+{
+  "cutoff": "2026-11-04T12:41:26.365161+00:00",
+  "input_sha256": "9a361f4726be130eb44ac2fb2c90e458fec03bc930ec8f1505fb03038a9a4032",
+  "scan_sha256": "b7e252cd8dcd38a1e8ba993a3c26a90276ccff3bf09097ce324d196680e4b413",
+  "annual_periods": 5,
+  "free_cash_flow": 66987000000,
+  "net_debt": null
+}

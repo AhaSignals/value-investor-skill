@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def check(root=ROOT):
-    required = ('SKILL.md', 'core/research.py', 'core/ledger.py', 'core/scanner.py', 'scripts/investor.py',
+    required = ('SKILL.md', 'core/research.py', 'core/ledger.py', 'core/scanner.py', 'core/us_research.py', 'core/us_report.py', 'references/us-research.md', 'scripts/investor.py',
                 'references/input-contract.md', 'references/research-protocol.md',
                 'examples/clinical.json', 'examples/merger.json', 'examples/value-trap.json',
                 'references/scanning.md', 'references/scan-input.md', 'prompts/START_HERE.md')
@@ -36,7 +36,7 @@ def main():
         for name, okay in result['checks'].items():
             print(('OK   ' if okay else 'FAIL ') + name.replace('_', ' '))
         print(result['scope'])
-        print('Next: ask your assistant to show the fictional $40 demo.' if result['ready'] else 'Next: use Python 3.9+ and extract the complete release package.')
+        print('Next: ask your assistant to research MSFT, or run the fictional offline demo.' if result['ready'] else 'Next: use Python 3.9+ and extract the complete release package.')
     return 0 if result['ready'] else 2
 
 

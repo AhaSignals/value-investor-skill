@@ -85,7 +85,7 @@ def main(argv=None):
         print(str(error) if isinstance(error, ValueError) else "Installation failed. Inspect the target for a partial copy before retrying.", file=sys.stderr)
         return 2
     print("Installed value-investor-skill. Reload your host's skills or start a new session.")
-    print('First message: Use value-investor-skill. Show the fictional $40 demo and explain what changes when its supporting evidence is withdrawn.')
+    print('First message: Use value-investor-skill. Research MSFT from public filings and historical prices; show missing evidence.')
     print('Optional setup check: run scripts/doctor.py from the installed skill directory.')
     return 0
 

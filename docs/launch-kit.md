@@ -2,6 +2,16 @@
 
 Draft copy for publication by AhaSignals. Preparing this file does not post it to any external community.
 
+## v0.5.0: one company name, a reproducible research trail
+
+**Enter MSFT. Fetch public filings and historical prices. See whether profit becomes cash, inspect historical P/E, and ask what would prove the thesis wrong.** One AI skill, eight research workflows. Full automation needs Python and network access; ordinary chat depends on the host.
+
+Real example, observed 2026-11-04: Microsoft FY2026 profit rose, while CFO minus cash capex fell from USD 71.611bn to 66.987bn. The next question is whether investment earns its cost. A lower historical P/E alone cannot answer it. [Inspect and reproduce the case](https://ahasignals.com/value-investor-skill/msft/?utm_source=github&utm_medium=launch_kit&utm_campaign=value_investor_launch_2026_11&utm_content=msft_case).
+
+中文：**只输入 MSFT，自动取公开财报与历史行情。利润有没有变成现金？历史 PE 的折价是否有原因？什么证据会推翻判断？** 微软真实案例显示，利润增长时，扣除现金资本开支后的现金仍可能减少。代码免费开源；美股非金融经营企业优先，缺失字段保持未知。具备 Python 和联网能力的完整技能可自动执行，普通聊天模式取决于宿主工具。
+
+This is substantive release copy, not evidence of a community post or user adoption. Share only in channels that allow relevant project demonstrations; no mass messages, fake engagement or installation claims from clicks.
+
 ## One sentence
 
 **8 value-investing workflows in 1 AI skill: scan financials, compare historical P/E, inspect price trends, test valuations and challenge your thesis. For Claude, ChatGPT, DeepSeek, Grok, Gemini and Kimi. Zero-install chat; 3 fictional cases, 4 demo charts.**
